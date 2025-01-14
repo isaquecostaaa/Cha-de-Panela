@@ -1,12 +1,12 @@
 // Configuração do Firebase
 const firebaseConfig = {
-    apiKey: "SUA_API_KEY",
-    authDomain: "SEU_AUTH_DOMAIN",
-    databaseURL: "SEU_DATABASE_URL",
-    projectId: "SEU_PROJECT_ID",
-    storageBucket: "SEU_STORAGE_BUCKET",
-    messagingSenderId: "SEU_MESSAGING_SENDER_ID",
-    appId: "SEU_APP_ID"
+  apiKey: "AIzaSyDTCwy1pQM0E3yVifYsW69vhrSSGh-zr5M",
+  authDomain: "cha-de-panela-39a8e.firebaseapp.com",
+  databaseURL: "https://cha-de-panela-39a8e-default-rtdb.firebaseio.com",
+  projectId: "cha-de-panela-39a8e",
+  storageBucket: "cha-de-panela-39a8e.firebasestorage.app",
+  messagingSenderId: "427821589232",
+  appId: "1:427821589232:web:9dd9dfd2d695ffbb955835"
   };
   
   // Inicializar Firebase

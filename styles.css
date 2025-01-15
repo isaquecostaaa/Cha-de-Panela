@@ -1,0 +1,150 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    
+    background-color: #e7e9ec;
+
+}
+
+.title {
+    text-align: center;
+    font-family: "Abiah-Regular";
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 2rem 3rem 2rem 3rem;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: #e7e9ec;
+
+}
+
+header h1 {
+    font-size: 3rem;
+    font-family: "Abiah-Regular";
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+header p {
+    font-size: 14px;
+    font-family: "Poppins";
+    text-align: justify;
+}
+
+span {
+    font-weight: bold;
+}
+
+/* Estilos do grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.item {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #fff;
+    position: relative; /* Torna o contêiner referência para posicionamento absoluto */
+    overflow: visible;
+    width: 100%;
+    max-width: 20rem;
+    font-family: "Poppins";
+    font-weight: bold;
+    display: flex; /* Adiciona flexbox */
+    flex-direction: column; /* Empilha os elementos verticalmente */
+    align-items: center; /* Alinha os elementos ao centro horizontalmente */
+    gap: 1.5rem;
+}
+
+.item img {
+    padding-top: 1.5rem;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.item p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Layout para telas maiores */
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.products {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 1rem;
+}
+
+.status {
+    position: absolute; /* Posiciona o status fora do fluxo normal */
+    top: -10px; /* Ajusta a posição vertical */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Corrige o alinhamento horizontal */
+    background-color: #4caf50; /* Verde */
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    font-family: "Poppins";
+    padding: 0.5rem 3rem;
+    border-radius: 0.4rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra */
+    z-index: 10;
+}
+
+/* Disponível */
+[data-status="disponivel"] .status {
+    background-color: #4caf50; /* Verde */
+    color: white;
+}
+
+/* Indisponível */
+[data-status="indisponivel"] .status {
+    background-color: #f44336; /* Vermelho */
+    text-decoration: line-through;
+}
+
+.item-btn {
+    padding: 0.8rem 5rem;
+    border: none;
+    background-color: #dadada;
+    font-family: "Poppins";
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+

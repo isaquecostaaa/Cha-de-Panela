@@ -63,17 +63,18 @@ span {
     grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
     padding: 1rem;
+    justify-items: center;
+    align-items: center;
 }
 
 .item {
     text-align: center;
-    border: 1px solid #ddd;
-    padding: 10px;
+    padding-bottom: 1rem;
     border-radius: 8px;
     background-color: #fff;
     position: relative; /* Torna o contêiner referência para posicionamento absoluto */
     overflow: visible;
-    width: 100%;
+    width: 90%;
     max-width: 100%;
     font-family: "Poppins";
     font-weight: bold;
@@ -86,31 +87,17 @@ span {
 
 .item img {
     padding-top: 1.5rem;
-    width: 100%;
+    width: 85%;
     height: auto;
     border-radius: 4px;
 }
 
 .item p {
-    margin-top: 10px;
-    font-size: 16px;
+    margin-top: 1rem;
+    font-size: 1.6rem;
     color: #333;
 }
 
-@media (max-width: 767px) {
-    .grid {
-        grid-template-columns:repeat(2, 1fr); /* 1 item por linha */
-        gap: 3rem 1rem; /* Reduz o espaço entre os itens */
-    }
-
-    .item {
-        max-width: 100%; /* Permite que os itens ocupem toda a largura disponível */
-    }
-
-    .item-btn {
-        padding: 0.8rem 2rem; /* Ajusta o padding do botão para telas menores */
-    }
-}
 
 /* Layout para telas maiores */
 @media (min-width: 768px) {
@@ -157,7 +144,7 @@ span {
 }
 
 .item-btn {
-    padding: 0.8rem 5rem;
+    padding: 0.8rem 2.5rem;
     border: none;
     background-color: #dadada;
     font-family: "Poppins";

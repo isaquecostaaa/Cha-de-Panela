@@ -152,3 +152,57 @@ span {
     cursor: pointer;
 }
 
+/* Estilo para o modal */
+.modal {
+    display: none; /* Modal inicialmente oculto */
+    position: fixed;
+    z-index: 100; /* Fica sobreposto aos outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo semi-transparente */
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  #choices-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #choices-list li {
+    margin: 10px 0;
+  }
+  
+  .delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+

@@ -61,7 +61,9 @@ span {
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 3rem;
+    padding: 1rem;
+    width: 100%;
 }
 
 .item {
@@ -80,6 +82,7 @@ span {
     flex-direction: column; /* Empilha os elementos verticalmente */
     align-items: center; /* Alinha os elementos ao centro horizontalmente */
     gap: 1.5rem;
+    box-sizing: border-box;
 }
 
 .item img {
@@ -93,6 +96,21 @@ span {
     margin-top: 10px;
     font-size: 16px;
     color: #333;
+}
+
+@media (max-width: 767px) {
+    .grid {
+        grid-template-columns:repeat(2, 1fr); /* 1 item por linha */
+        gap: 3rem 1rem; /* Reduz o espaço entre os itens */
+    }
+
+    .item {
+        max-width: 100%; /* Permite que os itens ocupem toda a largura disponível */
+    }
+
+    .item-btn {
+        padding: 0.8rem 2rem; /* Ajusta o padding do botão para telas menores */
+    }
 }
 
 /* Layout para telas maiores */

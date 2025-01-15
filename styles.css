@@ -63,7 +63,6 @@ span {
     grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
     padding: 1rem;
-    width: 100%;
 }
 
 .item {
@@ -75,7 +74,7 @@ span {
     position: relative; /* Torna o contêiner referência para posicionamento absoluto */
     overflow: visible;
     width: 100%;
-    max-width: 20rem;
+    max-width: 100%;
     font-family: "Poppins";
     font-weight: bold;
     display: flex; /* Adiciona flexbox */
@@ -87,7 +86,7 @@ span {
 
 .item img {
     padding-top: 1.5rem;
-    max-width: 100%;
+    width: 100%;
     height: auto;
     border-radius: 4px;
 }

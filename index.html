@@ -10,67 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://db.onlinewebfonts.com/c/8f6cbba4b4df7cb43762f2267dd469ee?family=Abiah-Regular" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    
-      
-
-    <!-- <script type="module">
-        // Configuração do Firebase
-    const firebaseConfig = {
-      apiKey: "AIzaSyDTCwy1pQM0E3yVifYsW69vhrSSGh-zr5M",
-      authDomain: "cha-de-panela-39a8e.firebaseapp.com",
-      databaseURL: "https://cha-de-panela-39a8e-default-rtdb.firebaseio.com",
-      projectId: "cha-de-panela-39a8e",
-      storageBucket: "cha-de-panela-39a8e.firebasestorage.app",
-      messagingSenderId: "427821589232",
-      appId: "1:427821589232:web:9dd9dfd2d695ffbb955835"
-      };
-      
-      // Inicializar Firebase
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-      import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
-      
-      const app = initializeApp(firebaseConfig);
-      const db = getDatabase(app);
-      
-      // Referência ao banco de dados
-      const itemsRef = ref(db, 'items/');
-      
-      // Monitorar itens no banco de dados
-      onValue(itemsRef, (snapshot) => {
-        const items = snapshot.val();
-        document.querySelectorAll('.item-btn').forEach(button => {
-          const itemName = button.dataset.item;
-          if (items && items[itemName] && items[itemName].reserved) {
-            button.textContent = `${itemName} (Indisponível)`;
-            button.disabled = true;
-          } else {
-            button.textContent = "Escolher";
-            button.disabled = false;
-          }
-        });
-      });
-      
-      // Lidar com a escolha de um item
-      document.querySelectorAll('.item-btn').forEach(button => {
-        button.addEventListener('click', () => {
-          const userName = prompt("Digite seu nome:");
-          if (!userName) return;
-      
-          const itemName = button.dataset.item;
-      
-          // Atualizar o banco de dados com a reserva do item
-          set(ref(db, `items/${itemName}`), {
-            reserved: true,
-            reservedBy: userName
-          }).then(() => {
-            alert(`${itemName} foi reservado por ${userName}.`);
-          }).catch((error) => {
-            console.error("Erro ao reservar o item:", error);
-          });
-        });
-      });
-      </script> -->
 </head>
 <body>
     <div class="container">
@@ -116,20 +57,31 @@
         </section>
     </div>
     <footer>
-      <div class="container">
-        <button id="manage-btn">Gerenciar Escolhas</button>
+        <div class="container manage">
 
-<!-- Modal de Gerenciamento -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Relatório de Escolhas</h2>
-    <ul id="choices-list">
-      <!-- Lista das escolhas dos itens será inserida aqui -->
-    </ul>
-  </div>
-</div>
-      </div>
+          <div id="password-modal" class="modal">
+            <div class="modal-content login">
+              <span class="close-password-modal">&times;</span>
+              <h2>Digite a senha para acessar o painel de gerenciamento</h2>
+              <input type="password" id="password" placeholder="Senha" />
+              <button id="submit-password">Confirmar</button>
+
+              <p id="error-message" style="color: red; display: none;"></p>
+            </div>
+          </div>
+
+          <button id="manage-btn">Gerenciar</button>
+            <div id="modal" class="modal">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Relatório de Escolhas</h2>
+                <ul id="choices-list">
+                  <!-- Lista das escolhas dos itens será inserida aqui -->
+                </ul>
+              </div>
+            </div>
+        </div>    
+
     </footer>
 
     <script type="module">
@@ -202,63 +154,264 @@
           });
         });
       });
+    
+      // Senha correta para acesso ao painel
+      const correctPassword = "filhos212325"; // Altere para a senha desejada
+    
+      // Variáveis para controle de acesso
+      let isPasswordCorrect = false;
+    
+      // Fechar o modal de senha ao clicar no "X"
+      document.querySelector(".close-password-modal").addEventListener("click", () => {
+        document.getElementById("password-modal").style.display = "none";
+      });
+    
+      // Fechar o modal de gerenciamento ao clicar no "X"
+      document.querySelector(".close").addEventListener("click", () => {
+        document.getElementById("modal").style.display = "none";
+      });
+    
+      // Ao clicar no botão de confirmar senha
+      document.getElementById("submit-password").addEventListener("click", () => {
+        const enteredPassword = document.getElementById("password").value;
+        const errorMessage = document.getElementById("error-message"); // Referência à mensagem de erro
 
+  // Limpar a mensagem de erro, caso tenha sido exibida anteriormente
+        errorMessage.style.display = "none";
+        errorMessage.textContent = "";
+    
+        if (enteredPassword === correctPassword) {
+          // Se a senha estiver correta, esconder o modal de senha
+          document.getElementById("password-modal").style.display = "none";
+          isPasswordCorrect = true; // Define que a senha foi correta
+    
+          // Exibir o modal de gerenciamento após a senha correta
+          document.getElementById("modal").style.display = "block";
+          loadChoices(); // Carrega as escolhas feitas
+
+        } else {
+          // Se a senha estiver errada, mostrar um aviso
+          errorMessage.style.display = "block"; // Exibe a mensagem de erro
+        errorMessage.textContent = "Senha incorreta! Tente novamente.";
+        }
+      });
+    
+      // Função para abrir o modal de senha ao clicar no botão
       document.getElementById("manage-btn").addEventListener("click", () => {
-document.getElementById("modal").style.display = "block"; // Exibe o modal
-loadChoices(); // Carrega as escolhas feitas
+        // Ao clicar em "Gerenciar", exibe o modal de senha
+        document.getElementById("password-modal").style.display = "block";
+      });
+    
+      function loadChoices() {
+  const choicesList = document.getElementById("choices-list");
+  choicesList.innerHTML = ""; // Limpa a lista antes de carregar as novas escolhas
+
+  // Obter dados do Firebase
+  const itemsRef = ref(db, 'items/');
+  onValue(itemsRef, (snapshot) => {
+    const items = snapshot.val();
+    if (items) {
+      for (const itemName in items) {
+        const item = items[itemName];
+        if (item.reserved) {
+          const li = document.createElement("li");
+          li.textContent = `${itemName} foi reservado por ${item.reservedBy}`;
+
+          // Cria o ícone de lixeira
+          const deleteButton = document.createElement("button");
+          deleteButton.classList.add("delete-btn");
+          // Usando Font Awesome para ícone de lixeira
+          deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
+          
+          // Adiciona o evento de clique para excluir a reserva
+          deleteButton.addEventListener("click", () => deleteReservation(itemName));
+          li.appendChild(deleteButton);
+
+          choicesList.appendChild(li);
+        }
+      }
+    }
+  });
+}
+
+      // Função para excluir a reserva
+      function deleteReservation(itemName) {
+        const itemRef = ref(db, `items/${itemName}`);
+    
+        // Excluir a reserva no Firebase
+        set(itemRef, {
+          reserved: false,
+          reservedBy: null
+        }).then(() => {
+          alert(`${itemName} agora está disponível novamente.`);
+          loadChoices(); // Atualiza a lista de escolhas após a exclusão
+        }).catch((error) => {
+          console.error("Erro ao excluir a reserva:", error);
+        });
+      }
+    </script>
+    
+
+<!--     <script type="module">
+      // Configuração do Firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyDTCwy1pQM0E3yVifYsW69vhrSSGh-zr5M",
+        authDomain: "cha-de-panela-39a8e.firebaseapp.com",
+        databaseURL: "https://cha-de-panela-39a8e-default-rtdb.firebaseio.com",
+        projectId: "cha-de-panela-39a8e",
+        storageBucket: "cha-de-panela-39a8e.firebasestorage.app",
+        messagingSenderId: "427821589232",
+        appId: "1:427821589232:web:9dd9dfd2d695ffbb955835"
+      };
+    
+      // Inicializar Firebase
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+      import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+    
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+    
+      // Referência ao banco de dados
+      const itemsRef = ref(db, 'items/');
+    
+      // Monitorar itens no banco de dados
+      onValue(itemsRef, (snapshot) => {
+        const items = snapshot.val();
+        document.querySelectorAll('.item-btn').forEach(button => {
+          const itemName = button.dataset.item; // O valor do data-item
+          const itemDiv = button.closest('.item'); // A div .item
+          const statusDiv = itemDiv.querySelector('.status'); // A div .status
+    
+          if (items && items[itemName] && items[itemName].reserved) {
+            // Alterar o texto e a cor da div .status quando o item estiver reservado
+            statusDiv.textContent = "Indisponível"; // Atualiza o texto para "Indisponível"
+            statusDiv.style.backgroundColor = "#f44336"; // Muda o fundo para vermelho
+            button.textContent = "Indisponível"; // Texto do botão
+            button.disabled = true; // Desabilita o botão
+          } else {
+            // Caso contrário, mantém o texto e o botão habilitado
+            statusDiv.textContent = "Disponível"; // Texto padrão
+            statusDiv.style.backgroundColor = "#4caf50"; // Cor de fundo padrão (verde)
+            button.textContent = "Escolher"; // Texto do botão
+            button.disabled = false; // Habilita o botão
+          }
+        });
+      });
+    
+      // Lidar com a escolha de um item
+      document.querySelectorAll('.item-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          const userName = prompt("Digite seu nome:");
+          if (!userName) return;
+    
+          const itemName = button.dataset.item; // Pega o nome do item do data-item
+          const itemDiv = button.closest('.item'); // A div .item
+          const statusDiv = itemDiv.querySelector('.status'); // A div .status
+    
+          // Atualizar o banco de dados com a reserva do item
+          set(ref(db, `items/${itemName}`), {
+            reserved: true,
+            reservedBy: userName
+          }).then(() => {
+            // Atualizar a div .status quando o item for reservado
+            statusDiv.textContent = "Indisponível"; // Muda o texto para "Indisponível"
+            statusDiv.style.backgroundColor = "#f44336"; // Muda o fundo para vermelho
+            alert(`${itemName} foi reservado por ${userName}.`);
+          }).catch((error) => {
+            console.error("Erro ao reservar o item:", error);
+          });
+        });
+      });
+
+// Senha correta para acesso ao painel
+const correctPassword = "minhaSenha123"; // Altere para a senha desejada
+
+// Mostrar o modal de senha ao carregar a página
+window.onload = () => {
+  document.getElementById("password-modal").style.display = "block";
+};
+
+// Fechar o modal de senha ao clicar no "X"
+document.querySelector(".close-password-modal").addEventListener("click", () => {
+  document.getElementById("password-modal").style.display = "none";
 });
 
-// Fecha o modal quando o botão de fechar é clicado
+// Fechar o modal de gerenciamento ao clicar no "X"
 document.querySelector(".close").addEventListener("click", () => {
-document.getElementById("modal").style.display = "none";
+  document.getElementById("modal").style.display = "none";
+});
+
+// Ao clicar no botão de confirmar senha
+document.getElementById("submit-password").addEventListener("click", () => {
+  const enteredPassword = document.getElementById("password").value;
+  
+  if (enteredPassword === correctPassword) {
+    // Se a senha estiver correta, esconder o modal de senha
+    document.getElementById("password-modal").style.display = "none";
+    
+    // Exibir o botão de gerenciamento
+    document.getElementById("manage-btn").style.display = "block";
+    
+    // Exibir uma mensagem de sucesso (opcional)
+    alert("Senha correta! Acesso ao painel liberado.");
+  } else {
+    // Se a senha estiver errada, mostrar um aviso
+    alert("Senha incorreta! Tente novamente.");
+  }
+});
+
+// Função para abrir o modal de gerenciamento ao clicar no botão
+document.getElementById("manage-btn").addEventListener("click", () => {
+  document.getElementById("modal").style.display = "block"; // Exibe o modal de gerenciamento
+  loadChoices(); // Carrega as escolhas feitas
 });
 
 // Função para carregar as escolhas do Firebase
 function loadChoices() {
-const choicesList = document.getElementById("choices-list");
-choicesList.innerHTML = ""; // Limpa a lista antes de carregar as novas escolhas
+  const choicesList = document.getElementById("choices-list");
+  choicesList.innerHTML = ""; // Limpa a lista antes de carregar as novas escolhas
 
-// Obter dados do Firebase
-const itemsRef = ref(db, 'items/');
-onValue(itemsRef, (snapshot) => {
+  // Obter dados do Firebase
+  const itemsRef = ref(db, 'items/');
+  onValue(itemsRef, (snapshot) => {
     const items = snapshot.val();
     if (items) {
-        for (const itemName in items) {
-            const item = items[itemName];
-            if (item.reserved) {
-                const li = document.createElement("li");
-                li.textContent = `${itemName} foi reservado por ${item.reservedBy}`;
-                
-                // Adiciona um botão para excluir a reserva
-                const deleteButton = document.createElement("button");
-                deleteButton.classList.add("delete-btn");
-                deleteButton.textContent = "Excluir";
-                deleteButton.addEventListener("click", () => deleteReservation(itemName));
-                li.appendChild(deleteButton);
+      for (const itemName in items) {
+        const item = items[itemName];
+        if (item.reserved) {
+          const li = document.createElement("li");
+          li.textContent = `${itemName} foi reservado por ${item.reservedBy}`;
+          
+          // Adiciona um botão para excluir a reserva
+          const deleteButton = document.createElement("button");
+          deleteButton.classList.add("delete-btn");
+          deleteButton.textContent = "Excluir";
+          deleteButton.addEventListener("click", () => deleteReservation(itemName));
+          li.appendChild(deleteButton);
 
-                choicesList.appendChild(li);
-            }
+          choicesList.appendChild(li);
         }
+      }
     }
-});
+  });
 }
 
 // Função para excluir a reserva
 function deleteReservation(itemName) {
-const itemRef = ref(db, `items/${itemName}`);
-
-// Excluir a reserva no Firebase
-set(itemRef, {
+  const itemRef = ref(db, `items/${itemName}`);
+  
+  // Excluir a reserva no Firebase
+  set(itemRef, {
     reserved: false,
     reservedBy: null
-}).then(() => {
+  }).then(() => {
     alert(`${itemName} agora está disponível novamente.`);
     loadChoices(); // Atualiza a lista de escolhas após a exclusão
-}).catch((error) => {
+  }).catch((error) => {
     console.error("Erro ao excluir a reserva:", error);
-});
+  });
 }
 
-    </script>
+    </script> -->
 </body>
 </html>

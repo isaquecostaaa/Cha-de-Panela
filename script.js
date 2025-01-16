@@ -167,7 +167,8 @@
         const hamburger = document.querySelector(".hamburger-btn");
         const menu = document.querySelector(".list");
         const menuLinks = document.querySelectorAll(".menu a"); // Seleciona todas as opções do menu
-        const body = document.body; // Seleciona o body para manipular o overflow
+        const body = document.body; // Seleciona o body
+        const html = document.documentElement; // Seleciona o html para suportar celulares
     
         hamburger.addEventListener("click", () => {
             hamburger.classList.toggle("active");
@@ -175,9 +176,11 @@
     
             // Impede ou libera a rolagem da página
             if (menu.classList.contains("active")) {
-                body.style.overflow = "hidden"; // Desativa a rolagem
+                body.style.overflow = "hidden"; // Desativa a rolagem do body
+                html.style.overflow = "hidden"; // Desativa a rolagem do html
             } else {
-                body.style.overflow = ""; // Restaura a rolagem
+                body.style.overflow = ""; // Restaura a rolagem do body
+                html.style.overflow = ""; // Restaura a rolagem do html
             }
         });
     
@@ -186,10 +189,12 @@
             link.addEventListener("click", () => {
                 hamburger.classList.remove("active"); // Remove a classe "active" do hamburger
                 menu.classList.remove("active"); // Remove a classe "active" do menu
-                body.style.overflow = ""; // Restaura a rolagem
+                body.style.overflow = ""; // Restaura a rolagem do body
+                html.style.overflow = ""; // Restaura a rolagem do html
             });
         });
     });
+    
     
 
     document.addEventListener("DOMContentLoaded", () => {

@@ -21,6 +21,12 @@ body {
 
 }
 
+.no-scroll {
+    overflow: hidden; /* Desativa a rolagem */
+    height: 100%; /* Impede que o conteúdo fique rolável */
+}
+
+
 header {
     position: sticky;
     top: 0;
@@ -159,7 +165,7 @@ header.hide {
 
   .names {
    position: relative;
-    top: 16rem;
+    top: 15rem;
 
   }
 

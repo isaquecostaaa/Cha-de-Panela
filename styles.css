@@ -124,13 +124,24 @@ span {
 } */
 
 .item p {
+    font-size: clamp(1rem, 2vw, 1.4rem); /* Define um tamanho mínimo, ideal e máximo */
+    color: #333;
+    height: 3rem;
+    line-height: 1.5rem;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap; /* Evita quebra de linha */
+    text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
+}
+
+/* .item p {
     font-size: 1.4rem;
     color: #333;
-    height: 3rem; /* Define uma altura fixa para o nome */
-    line-height: 1.5rem; /* Controla o espaçamento entre linhas */
-    overflow: hidden; /* Esconde o texto excedente */
+    height: 3rem; 
+    line-height: 1.5rem;
+    overflow: hidden;
     text-align: center;
-}
+} */
 
 /* .item p {
     margin-top: 1rem;

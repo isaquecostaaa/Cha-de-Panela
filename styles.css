@@ -169,7 +169,6 @@ header.hide {
     font-weight: 400;
     position: relative;
     top: 5rem;
-    left: 1rem;
   }
 
   .names img {
@@ -287,8 +286,7 @@ header.hide {
     height: 3rem;
     line-height: 1.5rem;
     overflow: hidden;
-    text-align: center;
-    white-space: nowrap; /* Evita quebra de linha */
+    text-align: center; /* Evita quebra de linha */
     text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
 }
 

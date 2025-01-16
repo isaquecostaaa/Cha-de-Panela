@@ -163,3 +163,40 @@
         });
       }
 
+      document.addEventListener("DOMContentLoaded", () => {
+        const hamburger = document.querySelector(".hamburger-btn");
+        const menu = document.querySelector(".list");
+        const menuLinks = document.querySelectorAll(".menu a"); // Seleciona todas as opções do menu
+    
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            menu.classList.toggle("active");
+        });
+    
+        // Fecha o menu quando qualquer link for clicado
+        menuLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active"); // Remove a classe "active" do hamburger
+                menu.classList.remove("active"); // Remove a classe "active" do menu
+            });
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const header = document.querySelector("header"); // Seleciona o header
+      let lastScrollTop = 0; // Variável para armazenar a última posição do scroll
+  
+      window.addEventListener("scroll", () => {
+          const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+  
+          // Se o usuário rolar para baixo
+          if (currentScroll > lastScrollTop) {
+              header.classList.add("hide"); // Adiciona a classe para esconder o header
+          } else {
+              header.classList.remove("hide"); // Remove a classe para mostrar o header
+          }
+  
+          lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Previne que o valor de scroll seja negativo
+      });
+  });
+

@@ -11,7 +11,7 @@
 
 /* Estilos gerais */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Poppins";
     line-height: 1.6;
 }
 
@@ -21,6 +21,164 @@ body {
 
 }
 
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 100;
+    border-bottom: solid #e7e9ec 1px;
+    transition: transform 0.3s ease;
+}
+
+header.hide {
+    transform: translateY(-100%); /* Faz o header sumir para cima */
+}
+
+.navbar {
+    position: sticky; /* Fixado no topo da tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8vh;
+    background-color: #fff;
+    z-index: 1004;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hamburger-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    background-color: white;
+  }
+  
+.hamburger-btn span {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    transition: all 0.3s ease-in-out;
+  }
+
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu ul {
+    display: none;
+    list-style: none; 
+    flex-direction: column;
+    gap: 1rem;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100vw; 
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10rem;
+    justify-content: space-around;
+    align-items: center; 
+    backdrop-filter: blur(5px);
+}
+
+.menu a {
+    color: black;
+    text-decoration: none;
+    background-color: #dadada;
+    padding: 2rem;
+    max-width: 100%;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.list.active {
+    display: flex;
+}
+
+.hamburger-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .hamburger-btn.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .profile {
+    width: 100%;
+    height: 92vh;
+    background-image: url(Design\ sem\ nome\ \(3\).svg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .names h1 {
+    font-family: "Abiah-Regular";
+    font-size: 6rem;
+    line-height: 5rem;
+    color: #fff;
+  }
+
+  .names h1:first-child {
+    padding-left: 1rem;
+  }
+
+  .names h1:nth-child(2)::before {
+    content: "";
+    display: block;
+    background-color: #fff;
+    height: 2px;
+    width: 100%;
+    position: relative;
+    top: 8rem;
+
+  }
+
+  .names span {
+    font-size: 5rem;
+  }
+
+  .names {
+   position: relative;
+    top: 16rem;
+
+  }
+
+  .names p {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 400;
+    position: relative;
+    top: 5rem;
+    left: 1rem;
+  }
+
+  .names img {
+    height: 2rem;
+    position: relative;
+    top: 6rem;
+    left: 15.5rem;
+  }
+
 .title {
     text-align: center;
     font-family: "Abiah-Regular";
@@ -28,7 +186,7 @@ body {
     font-weight: bold;
 }
 
-header {
+.about {
     text-align: center;
     margin-bottom: 20px;
     padding: 2rem 3rem 2rem 3rem;
@@ -40,20 +198,20 @@ header {
 }
 
 
-header h1 {
+.about h1 {
     font-size: 3rem;
     font-family: "Abiah-Regular";
     text-transform: uppercase;
     font-weight: bolder;
 }
 
-header p {
+.about p {
     font-size: 14px;
     font-family: "Poppins";
     text-align: justify;
 }
 
-span {
+.about span {
     font-weight: bold;
 }
 
@@ -156,7 +314,8 @@ span {
         grid-template-columns: repeat(4, 1fr);
     }
 
-    header {
+
+.about     {
         margin: 0 20%;
     }
 }
@@ -326,5 +485,12 @@ footer {
     cursor: pointer;
     border-radius: 5px;
   }
+
+footer p {
+    color: #565656;
+    background-color: #e7e9ec;
+    text-align: center;
+    padding-bottom: 2rem;
+}
   
 

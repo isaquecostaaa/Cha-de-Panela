@@ -166,31 +166,29 @@
       document.addEventListener("DOMContentLoaded", () => {
         const hamburger = document.querySelector(".hamburger-btn");
         const menu = document.querySelector(".list");
-        const menuLinks = document.querySelectorAll(".menu a"); // Seleciona todas as opções do menu
-        const body = document.body; // Seleciona o body
-        const html = document.documentElement; // Seleciona o html para suportar celulares
+        const menuLinks = document.querySelectorAll(".menu a");
+        const body = document.body;
+        const html = document.documentElement;
     
         hamburger.addEventListener("click", () => {
             hamburger.classList.toggle("active");
             menu.classList.toggle("active");
     
-            // Impede ou libera a rolagem da página
             if (menu.classList.contains("active")) {
-                body.style.overflow = "hidden"; // Desativa a rolagem do body
-                html.style.overflow = "hidden"; // Desativa a rolagem do html
+                body.style.overflow = "hidden";
+                html.style.overflow = "hidden";
             } else {
-                body.style.overflow = ""; // Restaura a rolagem do body
-                html.style.overflow = ""; // Restaura a rolagem do html
+                body.style.overflow = "";
+                html.style.overflow = "";
             }
         });
     
-        // Fecha o menu quando qualquer link for clicado
         menuLinks.forEach(link => {
             link.addEventListener("click", () => {
-                hamburger.classList.remove("active"); // Remove a classe "active" do hamburger
-                menu.classList.remove("active"); // Remove a classe "active" do menu
-                body.style.overflow = ""; // Restaura a rolagem do body
-                html.style.overflow = ""; // Restaura a rolagem do html
+                hamburger.classList.remove("active");
+                menu.classList.remove("active");
+                body.style.overflow = "";
+                html.style.overflow = "";
             });
         });
     });

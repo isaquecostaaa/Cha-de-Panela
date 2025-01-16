@@ -167,10 +167,18 @@
         const hamburger = document.querySelector(".hamburger-btn");
         const menu = document.querySelector(".list");
         const menuLinks = document.querySelectorAll(".menu a"); // Seleciona todas as opções do menu
+        const body = document.body; // Seleciona o body para manipular o overflow
     
         hamburger.addEventListener("click", () => {
             hamburger.classList.toggle("active");
             menu.classList.toggle("active");
+    
+            // Impede ou libera a rolagem da página
+            if (menu.classList.contains("active")) {
+                body.style.overflow = "hidden"; // Desativa a rolagem
+            } else {
+                body.style.overflow = ""; // Restaura a rolagem
+            }
         });
     
         // Fecha o menu quando qualquer link for clicado
@@ -178,9 +186,11 @@
             link.addEventListener("click", () => {
                 hamburger.classList.remove("active"); // Remove a classe "active" do hamburger
                 menu.classList.remove("active"); // Remove a classe "active" do menu
+                body.style.overflow = ""; // Restaura a rolagem
             });
         });
     });
+    
 
     document.addEventListener("DOMContentLoaded", () => {
       const header = document.querySelector("header"); // Seleciona o header

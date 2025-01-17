@@ -86,10 +86,14 @@
   </div>
 </div>
 
-
     <div id="kitchen-section" class="container products">
+      <div class="options-menu">
+        <input type="text" id="search-bar" placeholder="Pesquise por produto..." />
+        <button id="toggle-sort-btn"><i class="fa-solid fa-arrow-down-z-a"></i></button>
+
+      </div>  
         <h1 class="title">COZINHA</h1>
-        <section class="grid">
+        <section class="grid" id="kitchen-grid">
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
             <img class="item-img" src="https://cdn.awsli.com.br/618/618763/produto/16759328683bc7ca0e1.jpg" alt="Abridor de latas">
@@ -104,7 +108,7 @@
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
-            <img class="item-img" src="https://martinelloeletrodomesticos.fbitsstatic.net/img/p/fritadeira-eletrica-sem-oleo-air-fryer-mondial-afn-50-bi-preto-inox-5l-110v-75514/262104.jpg?w=482&h=482&v=no-change&qs=ignore" alt="Air Fryer">
+            <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_850274-MLU78125457342_082024-O.jpg" alt="Air Fryer">
             <p>Air Fryer</p>
             <button class="item-btn" data-item="Air Fryer">Escolher</button>
           </div>
@@ -116,7 +120,7 @@
           </div>
           <div class="item" data-status="disponivel" >
             <div class="status">DISPONÍVEL</div>
-            <img class="item-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSezskdFUH3jSsCtDuuX7CoG0jk_LgRojAoHQ&s" alt="Batedeira">
+            <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_934365-MLU74978710675_032024-O.jpg" alt="Batedeira">
             <p>Batedeira</p>
             <button class="item-btn" data-item="Batedeira">Escolher</button>
           </div>
@@ -152,7 +156,7 @@
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
-            <img class="item-img" src="https://imgs.casasbahia.com.br/1562790694/1xg.jpg" alt="Colheres de silicone">
+            <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_661314-MLA79719802867_102024-O.jpg" alt="Colheres de silicone">
             <p>Colheres de silicone</p>
             <button class="item-btn" data-item="Colheres de silicones">Escolher</button>
           </div>
@@ -185,12 +189,6 @@
             <img class="item-img" src="https://nivalmix.vteximg.com.br/arquivos/ids/220480-1000-1000/Nivalmix-Descanso-de-Panela-Redondo-Inox-20cm-Quanhe-2345245.jpg?v=638031822650300000" alt="Descanso de panela quente">
             <p>Kit descansos de panela quente</p>
             <button class="item-btn" data-item="Descanso de panela quente">Escolher</button>
-          </div>
-          <div class="item" data-status="disponivel">
-            <div class="status">DISPONÍVEL</div>
-            <img class="item-img" src="https://cdn.awsli.com.br/600x450/1021/1021492/produto/83096275/74e34f65b1.jpg" alt="Afiador de facas">
-            <p>Afiador de facas</p>
-            <button class="item-btn" data-item="Afiador de facas">Escolher</button>
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
@@ -326,7 +324,7 @@
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
-            <img class="item-img" src="https://m.media-amazon.com/images/I/71XL53eBv+L._AC_SL1500_.jpg" alt="Jarra de vidro">
+            <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_744539-MLA80791545224_112024-O.jpg" alt="Jarra de vidro">
             <p>Jarra de vidro</p>
             <button class="item-btn" data-item="Jarra de vidro">Escolher</button>
           </div>
@@ -338,9 +336,15 @@
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
-            <img class="item-img" src="https://img.camicado.com.br/item/100035358/zoom/1.jpg" alt="Jogo americano/Sousplat">
-            <p>Jogo americano/Sousplat</p>
-            <button class="item-btn" data-item="Jogo americano Sousplat">Escolher</button>
+            <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_967085-MLB76181683944_052024-O.jpg" alt="Jogo americano/Sousplat">
+            <p>Jogo americano/Sousplat (retangular)</p>
+            <button class="item-btn" data-item="Jogo americano Sousplat ret 1">Escolher</button>
+          </div>
+          <div class="item" data-status="disponivel">
+            <div class="status">DISPONÍVEL</div>
+            <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_967085-MLB76181683944_052024-O.jpg" alt="Jogo americano/Sousplat">
+            <p>Jogo americano/Sousplat (retangular)</p>
+            <button class="item-btn" data-item="Jogo americano Sousplat ret 2">Escolher</button>
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
@@ -368,7 +372,7 @@
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
-            <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_2X_713929-MLB72221292640_102023-F.webp" alt="Jogo de xícaras + pires (brancos)">
+            <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_736936-MLU72628798050_112023-O.jpg" alt="Jogo de xícaras + pires (brancos)">
             <p>Jogo de xícaras + pires (brancos)</p>
             <button class="item-btn" data-item="Jogo de xícaras + pires (brancos)">Escolher</button>
           </div>
@@ -386,19 +390,19 @@
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
-            <img class="item-img" src="https://m.media-amazon.com/images/I/61T91ktQVVL._AC_SL1200_.jpg" alt="Kit copos de vidro">
+            <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_612750-MLU75436379586_042024-O.jpg" alt="Kit copos de vidro">
             <p>Kit copos de vidro</p>
             <button class="item-btn" data-item="Kit copos de vidro-1">Escolher</button>
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
-            <img class="item-img" src="https://m.media-amazon.com/images/I/61T91ktQVVL._AC_SL1200_.jpg" alt="Kit copos de vidro">
+            <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_612750-MLU75436379586_042024-O.jpg" alt="Kit copos de vidro">
             <p>Kit copos de vidro</p>
             <button class="item-btn" data-item="Kit copos de vidro-2">Escolher</button>
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
-            <img class="item-img" src="https://m.media-amazon.com/images/I/71BkWw2OBbL._AC_SL1500_.jpg" alt="Kit copos de vidro (Estilo taça)">
+            <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_973253-MLU77065864146_062024-O.jpg" alt="Kit copos de vidro (Estilo taça)">
             <p>Kit copos de vidro (Estilo taça)</p>
             <button class="item-btn" data-item="Kit copos de vidro (Estilo taça)">Escolher</button>
           </div>
@@ -410,7 +414,7 @@
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
-            <img class="item-img" src="https://m.media-amazon.com/images/I/71TaPjtXASL._AC_SL1480_.jpg" alt="Kit taças de sobremesa">
+            <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_964928-MLU75585762048_042024-O.jpg" alt="Kit taças de sobremesa">
             <p>Kit taças de sobremesa</p>
             <button class="item-btn" data-item="Kit taças de sobremesa">Escolher</button>
           </div>
@@ -442,13 +446,13 @@
             <div class="status">DISPONÍVEL</div>
             <img class="item-img" src="https://assets.tramontina.com.br/upload/tramon/imagens/CUT/23399091PDM001G.jpg" alt="Kit de talheres (cabo plástico)">
             <p>Kit de talheres (cabo plástico)</p>
-            <button class="item-btn" data-item="Kit de talheres (cabo plástico) 1">Escolher</button>
+            <button class="item-btn" data-item="Kit de talheres (cabo plástico)">Escolher</button>
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
-            <img class="item-img" src="https://assets.tramontina.com.br/upload/tramon/imagens/CUT/23399091PDM001G.jpg" alt="Kit de talheres (cabo plástico)">
-            <p>Kit de talheres (cabo plástico)</p>
-            <button class="item-btn" data-item="Kit de talheres (cabo plástico) 2">Escolher</button>
+            <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_950259-MLA74093009494_012024-O.jpg" alt="Jogo de talheres (inox)">
+            <p>Jogo de talheres (inox)</p>
+            <button class="item-btn" data-item="Jogo de talheres (inox)">Escolher</button>
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
@@ -536,7 +540,7 @@
             </div>
             <div class="item" data-status="disponivel">
               <div class="status">DISPONÍVEL</div>
-              <img class="item-img" src="https://m.media-amazon.com/images/I/51+h6jTdW7S._AC_SL1181_.jpg" alt="Queijeira de vidro">
+              <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_859089-MLB78767839841_082024-O.jpg" alt="Queijeira de vidro">
               <p>Queijeira de vidro</p>
               <button class="item-btn" data-item="Queijeira de vidro">Escolher</button>
             </div>
@@ -668,29 +672,88 @@
             </div>
             <div class="item" data-status="disponivel">
               <div class="status">DISPONÍVEL</div>
-              <img class="item-img" src="https://m.media-amazon.com/images/I/61mtnJB96HL._AC_SL1200_.jpg" alt="Manteigueira de vidro">
+              <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_664035-MLU76995812017_062024-O.jpg" alt="Manteigueira de vidro">
               <p>Manteigueira de vidro</p>
               <button class="item-btn" data-item="Manteigueira de vidro">Escolher</button>
             </div>
             <div class="item" data-status="disponivel">
               <div class="status">DISPONÍVEL</div>
-              <img class="item-img" src="https://m.media-amazon.com/images/I/61-cb6QPBbL._AC_SL1500_.jpg" alt="Açucareiro de mesa">
+              <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_979373-MLU77655451647_072024-O.jpg" alt="Açucareiro de mesa">
               <p>Açucareiro de mesa</p>
               <button class="item-btn" data-item="Açucareiro de mesa">Escolher</button>
             </div>
             <div class="item" data-status="disponivel">
               <div class="status">DISPONÍVEL</div>
-              <img class="item-img" src="https://m.media-amazon.com/images/I/61vFMvBrCcL._AC_SL1000_.jpg" alt="Petisqueira">
-              <p>Petisqueira</p>
-              <button class="item-btn" data-item="Petisqueira">Escolher</button>
+              <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_715961-MLU72637232085_112023-O.jpg" alt="Fruteira de chão">
+              <p>Fruteira de chão</p>
+              <button class="item-btn" data-item="Fruteira de chão">Escolher</button>
             </div>
             <div class="item" data-status="disponivel">
               <div class="status">DISPONÍVEL</div>
-              <img class="item-img" src="https://m.media-amazon.com/images/I/61vFMvBrCcL._AC_SL1000_.jpg" alt="Petisqueira">
-              <p>Petisqueira</p>
-              <button class="item-btn" data-item="Petisqueira">Escolher</button>
+              <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_814868-MLU73423378481_122023-O.jpg" alt="Panela elétrica de arroz">
+              <p>Panela elétrica de arroz</p>
+              <button class="item-btn" data-item="Panela elétrica de arroz">Escolher</button>
             </div>
-            
+            <div class="item" data-status="disponivel">
+              <div class="status">DISPONÍVEL</div>
+              <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_648597-MLU72893041320_112023-O.jpg" alt="Panela elétrica de pressão">
+              <p>Panela elétrica de pressão</p>
+              <button class="item-btn" data-item="Panela elétrica de pressão">Escolher</button>
+            </div>
+            <div class="item" data-status="disponivel">
+              <div class="status">DISPONÍVEL</div>
+              <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_847900-MLA80754163308_112024-O.jpg" alt="Kit organizador de geladeira">
+              <p>Kit organizador de geladeira</p>
+              <button class="item-btn" data-item="Kit organizador de geladeira">Escolher</button>
+            </div>
+            <div class="item" data-status="disponivel">
+              <div class="status">DISPONÍVEL</div>
+              <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_793689-MLU74450711102_022024-O.jpg" alt="Aparelho de jantar completo">
+              <p>Aparelho de jantar completo</p>
+              <button class="item-btn" data-item="Aparelho de jantar completo">Escolher</button>
+            </div>
+            <div class="item" data-status="disponivel">
+              <div class="status">DISPONÍVEL</div>
+              <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_790720-MLB53835271060_022023-O.jpg" alt="Torradeira">
+              <p>Torradeira</p>
+              <button class="item-btn" data-item="Torradeira">Escolher</button>
+            </div>
+            <div class="item" data-status="disponivel">
+              <div class="status">DISPONÍVEL</div>
+              <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_995162-MLU78538135274_082024-O.jpg" alt="Kit de fondue">
+              <p>Kit de fondue</p>
+              <button class="item-btn" data-item="Kit de fondue">Escolher</button>
+            </div>
+            <div class="item" data-status="disponivel">
+              <div class="status">DISPONÍVEL</div>
+              <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_723779-MLU79321212059_092024-O.jpg" alt="Saladeira">
+              <p>Saladeira</p>
+              <button class="item-btn" data-item="Saladeira">Escolher</button>
+            </div>
+            <div class="item" data-status="disponivel">
+              <div class="status">DISPONÍVEL</div>
+              <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_613136-MLU72567950310_112023-O.jpg" alt="Organizador de tampas de panela">
+              <p>Organizador de tampas de panela</p>
+              <button class="item-btn" data-item="Organizador de tampas de panela">Escolher</button>
+            </div>
+            <div class="item" data-status="disponivel">
+              <div class="status">DISPONÍVEL</div>
+              <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_704194-MLB44791231007_022021-O.jpg" alt="Kit pegadores (inox)">
+              <p>Kit pegadores (inox)</p>
+              <button class="item-btn" data-item="Kit pegadores (inox)">Escolher</button>
+            </div>
+            <div class="item" data-status="disponivel">
+              <div class="status">DISPONÍVEL</div>
+              <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_716247-MLB47575406480_092021-O.jpg" alt="Organizadores de armário">
+              <p>Organizadores de armário</p>
+              <button class="item-btn" data-item="Organizadores de armário">Escolher</button>
+            </div>
+            <div class="item" data-status="disponivel">
+              <div class="status">DISPONÍVEL</div>
+              <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_820395-MLB51850016655_102022-O.jpg" alt="Kit de talheres para sobremesa">
+              <p>Kit de talheres para sobremesa</p>
+              <button class="item-btn" data-item="Kit de talheres para sobremesa">Escolher</button>
+            </div>
         </section>
     </div>
     <div id="livingroom-section" class="container products">

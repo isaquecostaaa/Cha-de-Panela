@@ -503,4 +503,19 @@ footer .dev {
     color: red;
 }
 
+.options-menu {
+  display: flex;
+  justify-content: space-between;
+  width: 28rem;
+  padding: 0 3rem;
+  align-self: flex-start;
+}
 
+.options-menu input, .options-menu button {
+  padding: 0.8rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.options-menu button {
+  padding: 0.8rem 0.8rem;
+}

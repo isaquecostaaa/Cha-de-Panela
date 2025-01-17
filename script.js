@@ -210,6 +210,55 @@ document.querySelectorAll('.item-btn').forEach(button => {
 
 //----------------------------------------------------------------------------------------------
 
+let isDescending = true; // Variável para controlar a direção da ordenação (Z-A ou A-Z)
+
+document.getElementById('search-bar').addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    const items = Array.from(document.getElementsByClassName('item'));
+
+    items.forEach(item => {
+        const productName = item.querySelector('p').textContent.toLowerCase();
+
+        if (productName.includes(searchTerm)) {
+            item.style.display = '';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+});
+
+document.getElementById('toggle-sort-btn').addEventListener('click', function() {
+    const grid = document.getElementById('kitchen-grid');
+    const items = Array.from(grid.getElementsByClassName('item'));
+
+    // Alternar a direção da ordenação
+    isDescending = !isDescending;
+
+    // Atualizar o ícone do botão com base na direção da ordenação
+    const icon = this.querySelector('i');
+    if (isDescending) {
+        icon.classList.add('fa-arrow-down-a-z');
+        icon.classList.remove('fa-arrow-down-z-a');
+    } else {
+        icon.classList.add('fa-arrow-down-z-a');
+        icon.classList.remove('fa-arrow-down-a-z');
+    }
+
+    items.sort((a, b) => {
+        const nameA = a.querySelector('p').textContent.toUpperCase();
+        const nameB = b.querySelector('p').textContent.toUpperCase();
+
+        // Se a direção for descendente (Z-A), ordena em ordem alfabética inversa,
+        // caso contrário (A-Z), ordena em ordem alfabética normal
+        return isDescending ? nameB.localeCompare(nameA) : nameA.localeCompare(nameB);
+    });
+
+    items.forEach(item => grid.appendChild(item));
+});
+
+
+
+
 
 
       document.addEventListener("DOMContentLoaded", () => {
@@ -218,17 +267,35 @@ document.querySelectorAll('.item-btn').forEach(button => {
         const menuLinks = document.querySelectorAll(".menu a");
         const body = document.body;
         const html = document.documentElement;
+        const header = document.querySelector("header"); // Seleciona o header
+        const navbar = document.querySelector(".navbar"); // Seleciona a lista dentro do menu
+
+        let scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+
     
         hamburger.addEventListener("click", () => {
             hamburger.classList.toggle("active");
             menu.classList.toggle("active");
+            header.classList.remove("hide");
+            navbar.style.position = "fixed"
+             // Remove a classe para mostrar o header
+
     
             if (menu.classList.contains("active")) {
                 body.style.overflow = "hidden";
                 html.style.overflow = "hidden";
+                body.style.paddingRight = `${scrollBarWidth}px`; // Compensa a largura da barra de rolagem
+                body.style.marginTop = `${8}vh`; // Compensa a largura da barra de rolagem
+
             } else {
                 body.style.overflow = "";
                 html.style.overflow = "";
+                navbar.style.position = "sticky"
+                body.style.paddingRight = "";
+                body.style.marginTop = ""; // Compensa a largura da barra de rolagem
+                // Remove o padding extra
+
+
             }
         });
     
@@ -236,6 +303,10 @@ document.querySelectorAll('.item-btn').forEach(button => {
             link.addEventListener("click", () => {
                 hamburger.classList.remove("active");
                 menu.classList.remove("active");
+                navbar.style.position = "sticky"
+                body.style.paddingRight = ""; 
+                body.style.marginTop = ""; // Compensa a largura da barra de rolagem
+                // Remove o padding extra
                 body.style.overflow = "";
                 html.style.overflow = "";
             });
@@ -255,21 +326,30 @@ document.querySelectorAll('.item-btn').forEach(button => {
       });
     });
     
-    document.addEventListener("DOMContentLoaded", () => {
-      const header = document.querySelector("header"); // Seleciona o header
-      let lastScrollTop = 0; // Variável para armazenar a última posição do scroll
-  
-      window.addEventListener("scroll", () => {
-          const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-  
-          // Se o usuário rolar para baixo
-          if (currentScroll > lastScrollTop) {
-              header.classList.add("hide"); // Adiciona a classe para esconder o header
-          } else {
-              header.classList.remove("hide"); // Remove a classe para mostrar o header
-          }
-  
-          lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Previne que o valor de scroll seja negativo
-      });
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector("header"); // Seleciona o header
+  let lastScrollTop = 0; // Variável para armazenar a última posição do scroll
+  const menu = document.querySelector(".list"); // Seleciona a lista dentro do menu
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Verifica se o menu está ativo antes de aplicar a lógica de scroll
+    if (!menu.classList.contains("active")) {
+      // Se o usuário rolar para baixo
+      if (currentScroll > lastScrollTop) {
+        header.classList.add("hide"); // Adiciona a classe para esconder o header
+      } else {
+        header.classList.remove("hide"); // Remove a classe para mostrar o header
+      }
+    } else {
+      // Garante que o header permaneça visível enquanto o menu estiver ativo
+      header.classList.remove("hide");
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Previne que o valor de scroll seja negativo
   });
+});
+
+    
 

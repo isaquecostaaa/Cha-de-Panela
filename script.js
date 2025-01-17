@@ -1,107 +1,105 @@
-      // Configuração do Firebase
-      const firebaseConfig = {
-        apiKey: "AIzaSyDTCwy1pQM0E3yVifYsW69vhrSSGh-zr5M",
-        authDomain: "cha-de-panela-39a8e.firebaseapp.com",
-        databaseURL: "https://cha-de-panela-39a8e-default-rtdb.firebaseio.com",
-        projectId: "cha-de-panela-39a8e",
-        storageBucket: "cha-de-panela-39a8e.firebasestorage.app",
-        messagingSenderId: "427821589232",
-        appId: "1:427821589232:web:9dd9dfd2d695ffbb955835"
-      };
-    
-      // Inicializar Firebase
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-      import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
-    
-      const app = initializeApp(firebaseConfig);
-      const db = getDatabase(app);
-    
-      // Referência ao banco de dados
-      const itemsRef = ref(db, 'items/');
-    
-      // Monitorar itens no banco de dados
-      onValue(itemsRef, (snapshot) => {
-        const items = snapshot.val();
-        document.querySelectorAll('.item-btn').forEach(button => {
-          const itemName = button.dataset.item; // O valor do data-item
-          const itemDiv = button.closest('.item'); // A div .item
-          const statusDiv = itemDiv.querySelector('.status'); // A div .status
-    
-          if (items && items[itemName] && items[itemName].reserved) {
-            // Alterar o texto e a cor da div .status quando o item estiver reservado
-            statusDiv.textContent = "Indisponível"; // Atualiza o texto para "Indisponível"
-            statusDiv.style.backgroundColor = "#f44336"; // Muda o fundo para vermelho
-            button.textContent = "Indisponível"; // Texto do botão
-            button.disabled = true; // Desabilita o botão
-          } else {
-            // Caso contrário, mantém o texto e o botão habilitado
-            statusDiv.textContent = "Disponível"; // Texto padrão
-            statusDiv.style.backgroundColor = "#4caf50"; // Cor de fundo padrão (verde)
-            button.textContent = "Escolher"; // Texto do botão
-            button.disabled = false; // Habilita o botão
-          }
-        });
+const firebaseConfig = {
+  apiKey: "AIzaSyDTCwy1pQM0E3yVifYsW69vhrSSGh-zr5M",
+  authDomain: "cha-de-panela-39a8e.firebaseapp.com",
+  databaseURL: "https://cha-de-panela-39a8e-default-rtdb.firebaseio.com",
+  projectId: "cha-de-panela-39a8e",
+  storageBucket: "cha-de-panela-39a8e.firebasestorage.app",
+  messagingSenderId: "427821589232",
+  appId: "1:427821589232:web:9dd9dfd2d695ffbb955835"
+};
+
+// Inicializar Firebase
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+// Referência ao banco de dados
+const itemsRef = ref(db, 'items/');
+
+// Monitorar itens no banco de dados
+onValue(itemsRef, (snapshot) => {
+  const items = snapshot.val();
+  document.querySelectorAll('.item-btn').forEach(button => {
+    const itemName = button.dataset.item; // O valor do data-item
+    const itemDiv = button.closest('.item'); // A div .item
+    const statusDiv = itemDiv.querySelector('.status'); // A div .status
+
+    if (items && items[itemName] && items[itemName].reserved) {
+      // Alterar o texto e a cor da div .status quando o item estiver reservado
+      statusDiv.textContent = "Indisponível"; // Atualiza o texto para "Indisponível"
+      statusDiv.style.backgroundColor = "#f44336"; // Muda o fundo para vermelho
+      button.textContent = "Indisponível"; // Texto do botão
+      button.disabled = true; // Desabilita o botão
+    } else {
+      // Caso contrário, mantém o texto e o botão habilitado
+      statusDiv.textContent = "Disponível"; // Texto padrão
+      statusDiv.style.backgroundColor = "#4caf50"; // Cor de fundo padrão (verde)
+      button.textContent = "Escolher"; // Texto do botão
+      button.disabled = false; // Habilita o botão
+    }
+  });
+});
+
+// Modais
+const reservationModal = document.getElementById("reservation-modal");
+const thankYouModal = document.getElementById("thank-you-modal");
+const closeBtns = document.querySelectorAll(".close");
+
+// Fechar modais
+closeBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    reservationModal.style.display = "none";
+    thankYouModal.style.display = "none";
+  });
+});
+
+// Lidar com o clique no botão "Escolher"
+document.querySelectorAll('.item-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const itemName = button.dataset.item;
+    const itemDiv = button.closest('.item');
+    const statusDiv = itemDiv.querySelector('.status');
+
+    // Verificar se o item já foi reservado
+    if (statusDiv.textContent === "Indisponível") {
+      alert("Este item já foi reservado!");
+      return; // Impede que o modal seja aberto
+    }
+
+    // Exibir o modal de reserva
+    reservationModal.style.display = "flex";
+
+    // Lidar com o clique no botão "Confirmar" do modal
+    document.getElementById('confirm-reservation').onclick = () => {
+      const userName = document.getElementById('user-name').value.trim();
+
+      if (!userName) {
+        alert("Por favor, insira seu nome!");
+        return;
+      }
+
+      // Atualizar o banco de dados com a reserva do item
+      set(ref(db, `items/${itemName}`), {
+        reserved: true,
+        reservedBy: userName
+      }).then(() => {
+        // Atualizar a interface
+        statusDiv.textContent = "Indisponível";
+        statusDiv.style.backgroundColor = "#f44336";
+        button.textContent = "Indisponível";
+        button.disabled = true;
+
+        // Fechar o modal de reserva e abrir o de agradecimento
+        reservationModal.style.display = "none";
+        thankYouModal.style.display = "flex";
+      }).catch((error) => {
+        console.error("Erro ao reservar o item:", error);
       });
-    
-      // Lidar com a escolha de um item
-      document.querySelectorAll('.item-btn').forEach(button => {
-        button.addEventListener('click', () => {
-          const itemName = button.dataset.item; // Pega o nome do item do data-item
-          const itemDiv = button.closest('.item'); // A div .item
-          const statusDiv = itemDiv.querySelector('.status'); // A div .status
-          
-          // Exibir o modal de reserva
-          const modal = document.getElementById("reservation-modal");
-          const closeModal = modal.querySelector(".close");
-          const userNameInput = modal.querySelector("#user-name");
-          const confirmButton = modal.querySelector("#confirm-reservation");
-          
-          modal.style.display = "flex"; // Exibe o modal
-          
-          // Fechar o modal de reserva quando o 'X' for clicado
-          closeModal.addEventListener("click", () => {
-            modal.style.display = "none";
-          });
-          
-          // Fechar o modal ao clicar fora da área do modal
-          window.addEventListener("click", (event) => {
-            if (event.target === modal) {
-              modal.style.display = "none";
-            }
-          });
-          
-          // Confirmar reserva quando o botão for clicado
-          confirmButton.addEventListener("click", () => {
-            const userName = userNameInput.value.trim();
-            if (!userName) return alert("Por favor, insira seu nome.");
-          
-            // Atualizar o banco de dados com a reserva do item
-            set(ref(db, `items/${itemName}`), {
-              reserved: true,
-              reservedBy: userName
-            }).then(() => {
-              // Atualizar a div .status quando o item for reservado
-              statusDiv.textContent = "Indisponível"; // Muda o texto para "Indisponível"
-              statusDiv.style.backgroundColor = "#f44336"; // Muda o fundo para vermelho
-              modal.style.display = "none"; // Fecha o modal de reserva
-              
-              // Exibir o modal de agradecimento
-              const thankYouModal = document.getElementById("thank-you-modal");
-              const closeThankYou = thankYouModal.querySelector(".close-thank-you");
-              
-              thankYouModal.style.display = "flex"; // Exibe o modal de agradecimento
-              
-              // Fechar o modal de agradecimento ao clicar no 'X'
-              closeThankYou.addEventListener("click", () => {
-                thankYouModal.style.display = "none";
-              });
-              
-            }).catch((error) => {
-              console.error("Erro ao reservar o item:", error);
-            });
-          });
-        });
-      });
+    };
+  });
+});
       
     
       // Senha correta para acesso ao painel
@@ -195,21 +193,24 @@
 
       // Função para excluir a reserva
       function deleteReservation(itemName) {
-
-
-
         const itemRef = ref(db, `items/${itemName}`);
     
-        // Excluir a reserva no Firebase
+        // Excluir a reserva no Firebase, configurando os valores corretamente
         set(itemRef, {
-          reserved: false,
-          reservedBy: null
+            reserved: false,
+            reservedBy: null
         }).then(() => {
-          loadChoices(); // Atualiza a lista de escolhas após a exclusão
+            // Recarregar as escolhas após a exclusão
+            loadChoices();
         }).catch((error) => {
-          console.error("Erro ao excluir a reserva:", error);
+            console.error("Erro ao excluir a reserva:", error);
         });
-      }
+    }
+
+
+//----------------------------------------------------------------------------------------------
+
+
 
       document.addEventListener("DOMContentLoaded", () => {
         const hamburger = document.querySelector(".hamburger-btn");
@@ -254,8 +255,6 @@
       });
     });
     
-    
-
     document.addEventListener("DOMContentLoaded", () => {
       const header = document.querySelector("header"); // Seleciona o header
       let lastScrollTop = 0; // Variável para armazenar a última posição do scroll

@@ -46,27 +46,63 @@
       // Lidar com a escolha de um item
       document.querySelectorAll('.item-btn').forEach(button => {
         button.addEventListener('click', () => {
-          const userName = prompt("Digite seu nome:");
-          if (!userName) return;
-    
           const itemName = button.dataset.item; // Pega o nome do item do data-item
           const itemDiv = button.closest('.item'); // A div .item
           const statusDiv = itemDiv.querySelector('.status'); // A div .status
-    
-          // Atualizar o banco de dados com a reserva do item
-          set(ref(db, `items/${itemName}`), {
-            reserved: true,
-            reservedBy: userName
-          }).then(() => {
-            // Atualizar a div .status quando o item for reservado
-            statusDiv.textContent = "Indisponível"; // Muda o texto para "Indisponível"
-            statusDiv.style.backgroundColor = "#f44336"; // Muda o fundo para vermelho
-            alert(`${itemName} foi reservado por ${userName}.`);
-          }).catch((error) => {
-            console.error("Erro ao reservar o item:", error);
+          
+          // Exibir o modal de reserva
+          const modal = document.getElementById("reservation-modal");
+          const closeModal = modal.querySelector(".close");
+          const userNameInput = modal.querySelector("#user-name");
+          const confirmButton = modal.querySelector("#confirm-reservation");
+          
+          modal.style.display = "flex"; // Exibe o modal
+          
+          // Fechar o modal de reserva quando o 'X' for clicado
+          closeModal.addEventListener("click", () => {
+            modal.style.display = "none";
+          });
+          
+          // Fechar o modal ao clicar fora da área do modal
+          window.addEventListener("click", (event) => {
+            if (event.target === modal) {
+              modal.style.display = "none";
+            }
+          });
+          
+          // Confirmar reserva quando o botão for clicado
+          confirmButton.addEventListener("click", () => {
+            const userName = userNameInput.value.trim();
+            if (!userName) return alert("Por favor, insira seu nome.");
+          
+            // Atualizar o banco de dados com a reserva do item
+            set(ref(db, `items/${itemName}`), {
+              reserved: true,
+              reservedBy: userName
+            }).then(() => {
+              // Atualizar a div .status quando o item for reservado
+              statusDiv.textContent = "Indisponível"; // Muda o texto para "Indisponível"
+              statusDiv.style.backgroundColor = "#f44336"; // Muda o fundo para vermelho
+              modal.style.display = "none"; // Fecha o modal de reserva
+              
+              // Exibir o modal de agradecimento
+              const thankYouModal = document.getElementById("thank-you-modal");
+              const closeThankYou = thankYouModal.querySelector(".close-thank-you");
+              
+              thankYouModal.style.display = "flex"; // Exibe o modal de agradecimento
+              
+              // Fechar o modal de agradecimento ao clicar no 'X'
+              closeThankYou.addEventListener("click", () => {
+                thankYouModal.style.display = "none";
+              });
+              
+            }).catch((error) => {
+              console.error("Erro ao reservar o item:", error);
+            });
           });
         });
       });
+      
     
       // Senha correta para acesso ao painel
       const correctPassword = "filhos212325"; // Altere para a senha desejada
@@ -75,13 +111,14 @@
       let isPasswordCorrect = false;
     
       // Fechar o modal de senha ao clicar no "X"
-      document.querySelector(".close-password-modal").addEventListener("click", () => {
-        document.getElementById("password-modal").style.display = "none";
-      });
-    
-      // Fechar o modal de gerenciamento ao clicar no "X"
-      document.querySelector(".close").addEventListener("click", () => {
-        document.getElementById("modal").style.display = "none";
+      document.querySelectorAll(".close").forEach((closeButton) => {
+        closeButton.addEventListener("click", () => {
+          // Encontra o modal pai (o mais próximo com a classe 'modal') e oculta
+          const modal = closeButton.closest(".modal");
+          if (modal) {
+            modal.style.display = "none";
+          }
+        });
       });
     
       // Ao clicar no botão de confirmar senha
@@ -99,7 +136,7 @@
           isPasswordCorrect = true; // Define que a senha foi correta
     
           // Exibir o modal de gerenciamento após a senha correta
-          document.getElementById("modal").style.display = "block";
+          document.getElementById("modal").style.display = "flex";
           loadChoices(); // Carrega as escolhas feitas
 
         } else {
@@ -112,7 +149,7 @@
       // Função para abrir o modal de senha ao clicar no botão
       document.getElementById("manage-btn").addEventListener("click", () => {
         // Ao clicar em "Gerenciar", exibe o modal de senha
-        document.getElementById("password-modal").style.display = "block";
+        document.getElementById("password-modal").style.display = "flex";
       });
     
       function loadChoices() {
@@ -128,18 +165,27 @@
         const item = items[itemName];
         if (item.reserved) {
           const li = document.createElement("li");
-          li.textContent = `${itemName} foi reservado por ${item.reservedBy}`;
-
+          
+          // Usando array para armazenar as partes do texto
+          const itens = [
+            `<p><b>${itemName}</b>`, // Item em negrito
+            `foi reservado por`,
+            `<b>${item.reservedBy}</b></p>` // Nome do reservado em negrito
+          ];
+  
+          // Usando join() para juntar a string
+          li.innerHTML = itens.join(' ');
+  
           // Cria o ícone de lixeira
           const deleteButton = document.createElement("button");
           deleteButton.classList.add("delete-btn");
           // Usando Font Awesome para ícone de lixeira
           deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
-          
+  
           // Adiciona o evento de clique para excluir a reserva
           deleteButton.addEventListener("click", () => deleteReservation(itemName));
           li.appendChild(deleteButton);
-
+  
           choicesList.appendChild(li);
         }
       }
@@ -149,6 +195,9 @@
 
       // Função para excluir a reserva
       function deleteReservation(itemName) {
+
+
+
         const itemRef = ref(db, `items/${itemName}`);
     
         // Excluir a reserva no Firebase
@@ -156,7 +205,6 @@
           reserved: false,
           reservedBy: null
         }).then(() => {
-          alert(`${itemName} agora está disponível novamente.`);
           loadChoices(); // Atualiza a lista de escolhas após a exclusão
         }).catch((error) => {
           console.error("Erro ao excluir a reserva:", error);
@@ -191,6 +239,19 @@
                 html.style.overflow = "";
             });
         });
+    });
+
+    document.querySelectorAll('.menu-link').forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault(); // Evita a atualização completa da página
+        const targetId = link.getAttribute('href').substring(1); // Pega o ID do destino (exclui o "#")
+        const targetElement = document.getElementById(targetId);
+    
+        // Rola suavemente até o elemento
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
     });
     
     

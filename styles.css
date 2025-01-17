@@ -86,7 +86,8 @@ header.hide {
     position: fixed;
     top: -100vh; 
     left: 0;
-    width: 100vw; 
+    width: 100%;
+    overflow: hidden; 
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
@@ -256,24 +257,6 @@ header.hide {
     box-sizing: border-box;
 }
 
-/* .item {
-    text-align: center;
-    padding-bottom: 1rem;
-    border-radius: 8px;
-    background-color: #fff;
-    position: relative;
-    overflow: visible;
-    width: 90%;
-    max-width: 100%;
-    height: 100%;
-    font-family: "Poppins";
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    gap: 1.5rem;
-    box-sizing: border-box;
-} */
 
 
 .item img {
@@ -284,14 +267,6 @@ header.hide {
     padding-top: 2rem;
 }
 
-/* .item img {
-    padding-top: 1.5rem;
-    width: 100%;
-    height: auto;
-    max-height: 20rem;
-    object-fit: contain;
-    border-radius: 4px;
-} */
 
 .item p {
     font-size: clamp(1rem, 2vw, 1.4rem); /* Define um tamanho mínimo, ideal e máximo */
@@ -302,21 +277,6 @@ header.hide {
     text-align: center; /* Evita quebra de linha */
     text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
 }
-
-/* .item p {
-    font-size: 1.4rem;
-    color: #333;
-    height: 3rem; 
-    line-height: 1.5rem;
-    overflow: hidden;
-    text-align: center;
-} */
-
-/* .item p {
-    margin-top: 1rem;
-    font-size: 1.6rem;
-    color: #333;
-} */
 
 
 /* Layout para telas maiores */
@@ -331,8 +291,6 @@ header.hide {
     }
 }
 
-
-
 .products {
     display: flex;
     flex-direction: column;
@@ -340,6 +298,7 @@ header.hide {
     align-items: center;
     gap: 1.5rem;
     padding-top: 1rem;
+    margin-top: 2rem;
 }
 
 .status {
@@ -379,74 +338,72 @@ header.hide {
     cursor: pointer;
 }
 
-/* .item-btn {
-    padding: 0.8rem 2.5rem;
-    border: none;
-    background-color: #dadada;
-    font-family: "Poppins";
-    border-radius: 0.5rem;
-    cursor: pointer;
-} */
 
 footer {
     margin-top: 2rem;
 }
 
 
-/* Estilo para o modal */
-/* Estilo comum para os modais */
+
 .modal {
-    display: none; /* Ocultar modais inicialmente */
+    display: none;
     position: fixed;
-    z-index: 100; /* Ficar na frente de outros elementos */
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
+    z-index: 100; /* Ficar na frente de outros elementos */
+    width: 100vh;
+    height: 100vh;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5); /* Fundo escurecido */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
   
   /* Estilo do conteúdo do modal */
   .modal-content {
     background-color: white;
-    margin: 15% auto;
-    padding: 20px;
+    padding: 0px 1rem 2rem 1rem;
     border: 1px solid #888;
     width: 80%; /* Tamanho do modal */
     max-width: 400px;
     text-align: center;
     border-radius: 1rem;
     font-family: "Poppins";
-  }
-  
-  /* Estilo para os botões */
-  button {
-    padding: 0.5rem 1rem;
-    background-color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    overflow: auto;
+    max-height: 60rem;
   }
   
   /* Estilo para o fechamento do modal */
-  .close, .close-password-modal {
+  .close {
     color: #aaa;
     font-size: 28px;
     font-weight: bold;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    align-self: flex-end;
   }
   
   .close:hover,
-  .close:focus,
-  .close-password-modal:hover,
-  .close-password-modal:focus {
+  .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
   }
+
+  .reservation-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 25rem;
+    height: 100%;
+}
+
+.reservation-modal input {
+    outline: none;
+}
+
   
   
   #choices-list {
@@ -456,10 +413,10 @@ footer {
   
   #choices-list li {
     margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
   }
   
-
-
 .manage {
     display: flex;
     justify-content: center;
@@ -467,25 +424,31 @@ footer {
     height: 10rem;
 }
 
-.manage button {
+.manage button, .modal-btn {
     font-family: "Poppins";
     border-radius: 0.5rem;
     border: solid 1px #333;
     padding: 0.5rem 1rem;
     height: 3rem;
+    cursor: pointer;
+}
+
+.manage button:hover {
+    background-color: #d0d0d0;
 }
 
 
 .login {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    max-height: 20rem;
+    justify-content: space-between;
+    max-height: 25rem;
     height: 100%;
 }
 
-.login button {
-    background-color: #e7e9ec;
+.login input {
+    height: 3rem;
+    outline: none;
 }
 
 .delete-btn {
@@ -493,15 +456,51 @@ footer {
     color: rgb(255, 130, 130);
     border: none !important;
     padding: 0.2rem 1rem !important;
+    margin-left: 1rem;
     cursor: pointer;
     border-radius: 5px;
+    
   }
 
-footer p {
+footer .dev {
     color: #565656;
     background-color: #e7e9ec;
     text-align: center;
     padding-bottom: 2rem;
 }
   
+.input-container {
+  position: relative;
+  width: 100%;
+  max-width: 40rem; /* Ajuste conforme necessário */
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  
+}
+
+.input-container #password, #user-name {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+.input-container #password:focus {
+  outline: none;
+}
+
+.thank-you-modal {
+    height: 20rem;
+}
+
+.heart-icon {
+    font-size: 2rem;
+    color: red;
+}
+
 

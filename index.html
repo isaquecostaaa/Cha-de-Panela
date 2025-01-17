@@ -25,9 +25,9 @@
             <div class="menu">
               <ul class="list">
                 <a href="#kitchen-section">Cozinha</a>
-                <a href="#">Quarto e sala</a>
-                <a href="#">Banheiro</a>
-                <a href="#">Área de serviço</a>
+                <a href="#livingroom-section">Quarto e sala</a>
+                <a href="#bathroom-section">Banheiro</a>
+                <a href="#laundry-section">Área de serviço</a>
               </ul>  
             </div>
         </header>
@@ -39,7 +39,7 @@
           <h1><span>&</span>GUILHERME</h1>
           <p>10/05/2025 - 16:00hr</p>
           <p>Rua Nossa Senhora da Conceição, 190 - Pilar, DC</p>
-          <img src="pngegg.png" alt="">
+          <img class="heart-icon" src="pngegg.png" alt="">
         </div>  
       </div>
       <section class="about">
@@ -56,6 +56,37 @@
         </div>
       </section>
     </div>  
+<!--     <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Confirmar escolha</h2>
+        <label for="user-name">Seu Nome:</label>
+        <input type="text" id="user-name" placeholder="Digite seu nome">
+        <button id="confirm-btn">Confirmar</button>
+      </div>
+    </div> -->
+
+     <!-- Modal para inserção do nome -->
+<div id="reservation-modal" class="modal">
+  <div class="modal-content reservation-modal">
+    <span class="close">&times;</span>
+    <h2>Digite seu nome para definir o item escolhido</h2>
+    <div class="input-container">
+      <input type="text" id="user-name" placeholder="Seu nome">
+    </div>
+    <button class="modal-btn" id="confirm-reservation">Confirmar</button>
+  </div>
+</div>
+
+<div id="thank-you-modal" class="modal">
+  <div class="modal-content thank-you-modal">
+    <span class="close">&times;</span>
+    <h2>Obrigado por contribuir com o nosso sonho!</h2>
+    <i class="heart-icon fa-solid fa-heart"></i>
+  </div>
+</div>
+
+
     <div id="kitchen-section" class="container products">
         <h1 class="title">COZINHA</h1>
         <section class="grid">
@@ -79,9 +110,9 @@
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
-            <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_2X_874325-MLU72998087711_112023-F.webp" alt="Bandeja de café">
-            <p>Bandeja de café</p>
-            <button class="item-btn" data-item="Bandeja de café">Escolher</button>
+            <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_2X_874325-MLU72998087711_112023-F.webp" alt="Bandeja de café da manhã">
+            <p>Bandeja de café da manhã</p>
+            <button class="item-btn" data-item="Bandeja de café da manhã">Escolher</button>
           </div>
           <div class="item" data-status="disponivel" >
             <div class="status">DISPONÍVEL</div>
@@ -128,7 +159,7 @@
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
             <img class="item-img" src="https://www.madeiranit.com.br/media/catalog/product/j/o/jogo-de-utensilios-para-cozinha-4-pecas-e-suporte-Martinazzo.jpg?optimize=high&height=459&width=459&canvas=459:459" alt="Utensílios de inox">
-            <p>Concha + Colher + Escumadeira de inox</p>
+            <p>Utensílios de inox</p>
             <button class="item-btn" data-item="Utensílios de inox">Escolher</button>
           </div>
           <div class="item" data-status="disponivel">
@@ -152,7 +183,7 @@
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
             <img class="item-img" src="https://nivalmix.vteximg.com.br/arquivos/ids/220480-1000-1000/Nivalmix-Descanso-de-Panela-Redondo-Inox-20cm-Quanhe-2345245.jpg?v=638031822650300000" alt="Descanso de panela quente">
-            <p>Descanso de panela quente</p>
+            <p>Kit descansos de panela quente</p>
             <button class="item-btn" data-item="Descanso de panela quente">Escolher</button>
           </div>
           <div class="item" data-status="disponivel">
@@ -182,7 +213,7 @@
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
             <img class="item-img" src="https://assets.tramontina.com.br/upload/tramon/imagens/FAR/63960150PDM001G.jpg" alt="Espátula para bolo de inox">
-            <p>Espátula para bolo de inox</p>
+            <p>Espátula para bolo (inox)</p>
             <button class="item-btn" data-item="Espátula para bolo de inox">Escolher</button>
           </div>
           <div class="item" data-status="disponivel">
@@ -236,7 +267,7 @@
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
             <img class="item-img" src="https://img.camicado.com.br/item/100880586/zoom/1.jpg" alt="Formas de gelo">
-            <p>Formas de gelo/p>
+            <p>Formas de gelo</p>
             <button class="item-btn" data-item="Formas de gelo">Escolher</button>
           </div>
           <div class="item" data-status="disponivel">
@@ -249,13 +280,25 @@
             <div class="status">DISPONÍVEL</div>
             <img class="item-img" src="https://assets.tramontina.com.br/upload/tramon/imagens/CUT/20062024PDM001G.jpg" alt="Forma de bolo/pudim">
             <p>Forma de bolo/pudim</p>
-            <button class="item-btn" data-item="Forma de bolo/pudim">Escolher</button>
+            <button class="item-btn" data-item="Forma de bolo pudim">Escolher</button>
+          </div>
+          <div class="item" data-status="disponivel">
+            <div class="status">DISPONÍVEL</div>
+            <img class="item-img" src="https://philco.vtexassets.com/arquivos/ids/250750-800-800?v=638556923045070000&width=800&height=800&aspect=true" alt="Forninho elétrico">
+            <p>Forninho elétrico</p>
+            <button class="item-btn" data-item="Forninho elétrico">Escolher</button>
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
             <img class="item-img" src="https://m.media-amazon.com/images/I/912-0XnKf-L._AC_SL1500_.jpg" alt="Frigideiras antiaderentes">
             <p>Frigideiras antiaderentes</p>
             <button class="item-btn" data-item="Frigideiras antiaderentes">Escolher</button>
+          </div>
+          <div class="item" data-status="disponivel">
+            <div class="status">DISPONÍVEL</div>
+            <img class="item-img" src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQI0w1g2XlG0TIvzPfupSeGmFODgKzo-RhIJWjCM7U5mbLvUg54x1RTM9VUSJGh019CWGIqbab-0Aj6IiQzbUgpBLfS9d0cUw&usqp=CAY" alt="Fruteira de vidro">
+            <p>Fruteira de vidro</p>
+            <button class="item-btn" data-item="Fruteira de vidro">Escolher</button>
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
@@ -277,7 +320,13 @@
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
-            <img class="item-img" src="https://m.media-amazon.com/images/I/71hBZBOiCeL._AC_SL1500_.jpg" alt="Jarra de vidro">
+            <img class="item-img" src="https://m.media-amazon.com/images/I/71hBZBOiCeL._AC_SL1500_.jpg" alt="Garrafas jarra de água">
+            <p>Garrafas jarra de água</p>
+            <button class="item-btn" data-item="Garrafas jarra de água">Escolher</button>
+          </div>
+          <div class="item" data-status="disponivel">
+            <div class="status">DISPONÍVEL</div>
+            <img class="item-img" src="https://m.media-amazon.com/images/I/71XL53eBv+L._AC_SL1500_.jpg" alt="Jarra de vidro">
             <p>Jarra de vidro</p>
             <button class="item-btn" data-item="Jarra de vidro">Escolher</button>
           </div>
@@ -291,7 +340,7 @@
             <div class="status">DISPONÍVEL</div>
             <img class="item-img" src="https://img.camicado.com.br/item/100035358/zoom/1.jpg" alt="Jogo americano/Sousplat">
             <p>Jogo americano/Sousplat</p>
-            <button class="item-btn" data-item="Jogo americano/Sousplat">Escolher</button>
+            <button class="item-btn" data-item="Jogo americano Sousplat">Escolher</button>
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
@@ -315,13 +364,19 @@
             <div class="status">DISPONÍVEL</div>
             <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_2X_715174-MLU72828076845_112023-F.webp" alt="Jogo de pratos p/ sobremesa (brancos)">
             <p>Jogo de pratos p/ sobremesa (brancos)</p>
-            <button class="item-btn" data-item="Jogo de pratos p/ sobremesa (brancos)">Escolher</button>
+            <button class="item-btn" data-item="Jogo de pratos p sobremesa (brancos)">Escolher</button>
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
             <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_2X_713929-MLB72221292640_102023-F.webp" alt="Jogo de xícaras + pires (brancos)">
             <p>Jogo de xícaras + pires (brancos)</p>
             <button class="item-btn" data-item="Jogo de xícaras + pires (brancos)">Escolher</button>
+          </div>
+          <div class="item" data-status="disponivel">
+            <div class="status">DISPONÍVEL</div>
+            <img class="item-img" src="https://m.media-amazon.com/images/I/51lmuk8XnuL._AC_SL1080_.jpg" alt="Jogo de canecas">
+            <p>Jogo de canecas</p>
+            <button class="item-btn" data-item="Jogo de canecas">Escolher</button>
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
@@ -333,7 +388,13 @@
             <div class="status">DISPONÍVEL</div>
             <img class="item-img" src="https://m.media-amazon.com/images/I/61T91ktQVVL._AC_SL1200_.jpg" alt="Kit copos de vidro">
             <p>Kit copos de vidro</p>
-            <button class="item-btn" data-item="Kit copos de vidro">Escolher</button>
+            <button class="item-btn" data-item="Kit copos de vidro-1">Escolher</button>
+          </div>
+          <div class="item" data-status="disponivel">
+            <div class="status">DISPONÍVEL</div>
+            <img class="item-img" src="https://m.media-amazon.com/images/I/61T91ktQVVL._AC_SL1200_.jpg" alt="Kit copos de vidro">
+            <p>Kit copos de vidro</p>
+            <button class="item-btn" data-item="Kit copos de vidro-2">Escolher</button>
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
@@ -381,7 +442,13 @@
             <div class="status">DISPONÍVEL</div>
             <img class="item-img" src="https://assets.tramontina.com.br/upload/tramon/imagens/CUT/23399091PDM001G.jpg" alt="Kit de talheres (cabo plástico)">
             <p>Kit de talheres (cabo plástico)</p>
-            <button class="item-btn" data-item="Kit de talheres (cabo plástico)">Escolher</button>
+            <button class="item-btn" data-item="Kit de talheres (cabo plástico) 1">Escolher</button>
+          </div>
+          <div class="item" data-status="disponivel">
+            <div class="status">DISPONÍVEL</div>
+            <img class="item-img" src="https://assets.tramontina.com.br/upload/tramon/imagens/CUT/23399091PDM001G.jpg" alt="Kit de talheres (cabo plástico)">
+            <p>Kit de talheres (cabo plástico)</p>
+            <button class="item-btn" data-item="Kit de talheres (cabo plástico) 2">Escolher</button>
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
@@ -405,13 +472,13 @@
             <div class="status">DISPONÍVEL</div>
             <img class="item-img" src="https://m.media-amazon.com/images/I/61bKvPtT8aL._AC_.jpg" alt="Panos de prato">
             <p>Panos de prato</p>
-            <button class="item-btn" data-item="Panos de prato">Escolher</button>
+            <button class="item-btn" data-item="Panos de prato-1">Escolher</button>
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
             <img class="item-img" src="https://m.media-amazon.com/images/I/61bKvPtT8aL._AC_.jpg" alt="Panos de prato">
             <p>Panos de prato</p>
-            <button class="item-btn" data-item="Panos de prato">Escolher</button>
+            <button class="item-btn" data-item="Panos de prato-2">Escolher</button>
           </div>
           <div class="item" data-status="disponivel">
             <div class="status">DISPONÍVEL</div>
@@ -469,15 +536,21 @@
             </div>
             <div class="item" data-status="disponivel">
               <div class="status">DISPONÍVEL</div>
-              <img class="item-img" src="https://m.media-amazon.com/images/I/51+h6jTdW7S._AC_SL1181_.jpg" alt="Queijeira">
-              <p>Queijeira</p>
-              <button class="item-btn" data-item="Queijeira">Escolher</button>
+              <img class="item-img" src="https://m.media-amazon.com/images/I/51+h6jTdW7S._AC_SL1181_.jpg" alt="Queijeira de vidro">
+              <p>Queijeira de vidro</p>
+              <button class="item-btn" data-item="Queijeira de vidro">Escolher</button>
             </div>
             <div class="item" data-status="disponivel">
               <div class="status">DISPONÍVEL</div>
-              <img class="item-img" src="https://assets.tramontina.com.br/upload/tramon/imagens/CUT/25110180PDM001G.jpg" alt="Rodo de pia">
+              <img class="item-img" src="https://m.media-amazon.com/images/I/41VxGr9GFNL._AC_SL1000_.jpg" alt="Rodo de pia">
               <p>Rodo de pia</p>
               <button class="item-btn" data-item="Rodo de pia">Escolher</button>
+            </div>
+            <div class="item" data-status="disponivel">
+              <div class="status">DISPONÍVEL</div>
+              <img class="item-img" src="https://assets.tramontina.com.br/upload/tramon/imagens/CUT/25110180PDM001G.jpg" alt="Ralador">
+              <p>Ralador</p>
+              <button class="item-btn" data-item="Ralador">Escolher</button>
             </div>
             <div class="item" data-status="disponivel">
               <div class="status">DISPONÍVEL</div>
@@ -489,7 +562,7 @@
               <div class="status">DISPONÍVEL</div>
               <img class="item-img" src="https://http2.mlstatic.com/D_NQ_NP_2X_708306-MLU72637466945_112023-F.webp" alt="Saca-Rolhas/abridor de latas">
               <p>Saca-Rolhas/abridor de latas</p>
-              <button class="item-btn" data-item="Saca-Rolhas/abridor de latas">Escolher</button>
+              <button class="item-btn" data-item="Saca-Rolhas abridor de latas">Escolher</button>
             </div>
             <div class="item" data-status="disponivel">
               <div class="status">DISPONÍVEL</div>
@@ -537,13 +610,13 @@
               <div class="status">DISPONÍVEL</div>
               <img class="item-img" src="https://m.media-amazon.com/images/I/51wQ2UujUnL._AC_SL1000_.jpg" alt="Travessas marinex c/ tampa">
               <p>Travessas marinex c/ tampa</p>
-              <button class="item-btn" data-item="Travessas marinex c/ tampa">Escolher</button>
+              <button class="item-btn" data-item="Travessas marinex c tampa">Escolher</button>
             </div>
             <div class="item" data-status="disponivel">
               <div class="status">DISPONÍVEL</div>
               <img class="item-img" src="https://m.media-amazon.com/images/I/417H51kbuQL._AC_SL1000_.jpg" alt="Lixeira grande p/ cozinha">
               <p>Lixeira grande p/ cozinha</p>
-              <button class="item-btn" data-item="Lixeira grande p/ cozinha">Escolher</button>
+              <button class="item-btn" data-item="Lixeira grande p cozinha">Escolher</button>
             </div>
             <div class="item" data-status="disponivel">
               <div class="status">DISPONÍVEL</div>
@@ -560,14 +633,14 @@
             <div class="item" data-status="disponivel">
               <div class="status">DISPONÍVEL</div>
               <img class="item-img" src="https://m.media-amazon.com/images/I/71-H8AIKc4L._AC_SL1200_.jpg" alt="Tapete/Passadeira">
-              <p>Tapete/Passadeira</p>
-              <button class="item-btn" data-item="Tapete/Passadeira">Escolher</button>
+              <p>Tapete\Passadeira</p>
+              <button class="item-btn" data-item="Tapete\Passadeira-1">Escolher</button>
             </div>
             <div class="item" data-status="disponivel">
               <div class="status">DISPONÍVEL</div>
-              <img class="item-img" src="https://m.media-amazon.com/images/I/71-H8AIKc4L._AC_SL1200_.jpg" alt="Tapete/Passadeira">
-              <p>Tapete/Passadeira</p>
-              <button class="item-btn" data-item="Tapete/Passadeira">Escolher</button>
+              <img class="item-img" src="https://m.media-amazon.com/images/I/71-H8AIKc4L._AC_SL1200_.jpg" alt="Tapete\Passadeira">
+              <p>Tapete\Passadeira</p>
+              <button class="item-btn" data-item="Tapete\Passadeira-2">Escolher</button>
             </div>
             <div class="item" data-status="disponivel">
               <div class="status">DISPONÍVEL</div>
@@ -589,22 +662,60 @@
             </div>
             <div class="item" data-status="disponivel">
               <div class="status">DISPONÍVEL</div>
-              <img class="item-img" src="https://m.media-amazon.com/images/I/71abdRUUQ4L._AC_SL1188_.jpg" alt="Tábuas de corte">
-              <p>Tábuas de corte</p>
-              <button class="item-btn" data-item="Tábuas de corte">Escolher</button>
+              <img class="item-img" src="https://m.media-amazon.com/images/I/61vFMvBrCcL._AC_SL1000_.jpg" alt="Petisqueira">
+              <p>Petisqueira</p>
+              <button class="item-btn" data-item="Petisqueira">Escolher</button>
+            </div>
+            <div class="item" data-status="disponivel">
+              <div class="status">DISPONÍVEL</div>
+              <img class="item-img" src="https://m.media-amazon.com/images/I/61mtnJB96HL._AC_SL1200_.jpg" alt="Manteigueira de vidro">
+              <p>Manteigueira de vidro</p>
+              <button class="item-btn" data-item="Manteigueira de vidro">Escolher</button>
+            </div>
+            <div class="item" data-status="disponivel">
+              <div class="status">DISPONÍVEL</div>
+              <img class="item-img" src="https://m.media-amazon.com/images/I/61-cb6QPBbL._AC_SL1500_.jpg" alt="Açucareiro de mesa">
+              <p>Açucareiro de mesa</p>
+              <button class="item-btn" data-item="Açucareiro de mesa">Escolher</button>
+            </div>
+            <div class="item" data-status="disponivel">
+              <div class="status">DISPONÍVEL</div>
+              <img class="item-img" src="https://m.media-amazon.com/images/I/61vFMvBrCcL._AC_SL1000_.jpg" alt="Petisqueira">
+              <p>Petisqueira</p>
+              <button class="item-btn" data-item="Petisqueira">Escolher</button>
+            </div>
+            <div class="item" data-status="disponivel">
+              <div class="status">DISPONÍVEL</div>
+              <img class="item-img" src="https://m.media-amazon.com/images/I/61vFMvBrCcL._AC_SL1000_.jpg" alt="Petisqueira">
+              <p>Petisqueira</p>
+              <button class="item-btn" data-item="Petisqueira">Escolher</button>
             </div>
             
         </section>
+    </div>
+    <div id="livingroom-section" class="container products">
+      <h1 class="title">QUARTO E SALA</h1>
+      <section class="grid"></section>
+    </div>
+    <div id="bathroom-section" class="container products">
+      <h1 class="title">BANHEIRO</h1>
+      <section class="grid"></section>
+    </div>
+    <div id="laundry-section" class="container products">
+      <h1 class="title">ÁREA DE SERVIÇO</h1>
+      <section class="grid"></section>
     </div>
     <footer>
         <div class="container manage">
 
           <div id="password-modal" class="modal">
             <div class="modal-content login">
-              <span class="close-password-modal">&times;</span>
+              <span class="close">&times;</span>
               <h2>Digite a senha para acessar o painel de gerenciamento</h2>
-              <input type="password" id="password" placeholder="Senha" />
-              <button id="submit-password">Confirmar</button>
+              <div class="input-container">
+                <input type="password" id="password" placeholder="Senha" />
+              </div>
+              <button class="modal-btn" id="submit-password">Confirmar</button>
 
               <p id="error-message" style="color: red; display: none;"></p>
             </div>
@@ -624,7 +735,7 @@
 
         </div>  
         
-      <p>Desenvolvido por @Isaquecostaaa</p>
+      <p class="dev">Desenvolvido por @Isaquecostaaa</p>
     </footer>
 
 

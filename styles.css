@@ -232,6 +232,19 @@ header.hide {
     font-weight: bold;
 }
 
+.circle {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 100%;
+  background-color: red;
+}
+
+.palette-grid {
+    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    align-items: center;
+}
+
 /* Estilos do grid */
 /* .grid {
     display: grid;

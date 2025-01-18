@@ -238,8 +238,8 @@ header.hide {
 }
 
 .circle {
-  width: 8rem;
-  height: 8rem;
+  width: 7rem;
+  height: 7rem;
   border-radius: 100%;
   background-color: red;
   display: flex;
@@ -260,32 +260,19 @@ header.hide {
 .circle:nth-child(3) {
   background-color: rgb(240, 193, 162);
 }
+
 .circle:nth-child(4) {
-  background: linear-gradient(to right, 
-    rgb(255, 170, 0),   /* Dourado intenso */
-    rgba(255, 223, 76, 1),  /* Dourado médio */
-    rgb(255, 234, 140),  /* Dourado médio */
-    rgb(255, 246, 204), /* Dourado claro */
-    rgb(255, 234, 140),
-    rgba(255, 223, 76, 1),
-    rgb(255, 170, 0)  /* Amarelo claro */
-  );
-}
-.circle:nth-child(5) {
-  background-color: #e2725b;
-}
-.circle:nth-child(6) {
   background-color: #000;
   color: #fff;
 }
 
 .palette-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+  grid-template-columns: repeat(4, 1fr); /* 3 colunas */
   gap: 2rem; /* Espaçamento entre os círculos */
   justify-content: center; /* Centraliza os círculos horizontalmente */
   margin: 0 auto; /* Garante que o grid esteja alinhado ao centro */
-  max-width: 24rem; 
+  max-width: 14rem; 
   padding: 2rem 0;/* Limita a largura do grid para mantê-lo proporcional */
 }
 

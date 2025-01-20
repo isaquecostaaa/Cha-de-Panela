@@ -1,199 +1,207 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lista de Presentes</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="https://db.onlinewebfonts.com/c/8f6cbba4b4df7cb43762f2267dd469ee?family=Abiah-Regular" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-</head>
-<body>
-  <header>
-    <nav class="navbar">
-      <button class="hamburger-btn">
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-      </button>
-    </nav>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://db.onlinewebfonts.com/c/8f6cbba4b4df7cb43762f2267dd469ee?family=Abiah-Regular"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <button class="hamburger-btn">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </button>
+      </nav>
       <div class="menu">
         <ul class="list">
           <a href="#kitchen-section">Cozinha</a>
           <a href="#livingroom-section">Quarto e sala</a>
           <a href="#bathroom-section">Banheiro</a>
           <a href="#laundry-section">Área de serviço</a>
-        </ul>  
+        </ul>
       </div>
-  </header>
+    </header>
 
-<div class="container">
-<div class="profile">
-  <div class="names">
-    <h1>ISABELLY</h1>
-    <h1><span>&</span>GUILHERME</h1>
-    <p>10/05/2025 - 16:00hr</p>
-    <p>Rua Nossa Senhora da Conceição, 190 - Pilar, DC</p>
-    <img class="heart-icon" src="pngegg.png" alt="">
-  </div>  
-</div>
-<section class="about">
-  
-  <div>
-    <h1 class="title">Lista de Presentes</h1>
-    <p>Queridos convidados, nesta lista <span>separamos alguns exemplos</span> de itens que 
-    <span>combinam com o estilo e as cores que imaginamos para o nosso lar.</span>
-    Essas imagens são <span>apenas sugestões</span> para ajudar vocês a entenderem
-    o que mais gostamos, mas sintam-se à vontade para escolher algo semelhante ou até diferente,
-    se preferirem. O mais importante é receber o carinho de vocês nesse momento tão especial!
-    <span>Obrigada por fazerem parte dessa etapa tão importante das nossas vidas.</span>
-    </p>
-  </div>
-  <div>
-    <h1 class="title">O nosso estilo</h1>
-    <div class="palette-grid">
-      <div class="circle">BRANCO</div>
-      <div class="circle">CINZA</div>
-      <div class="circle">BEGE</div>
-      <div class="circle">PRETO</div>
-    </div>
-  </div>
-</section>
-</div>  
-
-  <div id="reservation-modal" class="modal">
-    <div class="modal-content reservation-modal">
-      <span class="close">&times;</span>
-      <h2>Digite seu nome para definir o item escolhido</h2>
-      <div class="input-container">
-        <input type="text" id="user-name" placeholder="Seu nome">
+    <div class="container">
+      <div class="profile">
+        <div class="names">
+          <h1>ISABELLY</h1>
+          <h1><span>&</span>GUILHERME</h1>
+          <p>10/05/2025 - 16:00hr</p>
+          <p>Rua Nossa Senhora da Conceição, 190 - Pilar, DC</p>
+          <img class="heart-icon" src="pngegg.png" alt="" />
+        </div>
       </div>
-      <button class="modal-btn" id="confirm-reservation">Confirmar</button>
+      <section class="about">
+        <div>
+          <h1 class="title">Lista de Presentes</h1>
+          <p>
+            Queridos convidados, nesta lista
+            <span>separamos alguns exemplos</span> de itens que
+            <span
+              >combinam com o estilo e as cores que imaginamos para o nosso
+              lar.</span
+            >
+            Essas imagens são <span>apenas sugestões</span> para ajudar vocês a
+            entenderem o que mais gostamos, mas sintam-se à vontade para
+            escolher algo semelhante ou até diferente, se preferirem. O mais
+            importante é receber o carinho de vocês nesse momento tão especial!
+            <span
+              >Obrigada por fazerem parte dessa etapa tão importante das nossas
+              vidas.</span
+            >
+          </p>
+        </div>
+        <div>
+          <h1 class="title">O nosso estilo</h1>
+          <div class="palette-grid">
+            <div class="circle">BRANCO</div>
+            <div class="circle">CINZA</div>
+            <div class="circle">BEGE</div>
+            <div class="circle">PRETO</div>
+          </div>
+        </div>
+      </section>
     </div>
-  </div>
-  
-  <div id="thank-you-modal" class="modal">
-    <div class="modal-content thank-you-modal">
-      <span class="close">&times;</span>
-      <h2>Obrigado por contribuir com o nosso sonho!</h2>
-      <i class="heart-icon fa-solid fa-heart"></i>
+
+    <div id="reservation-modal" class="modal">
+      <div class="modal-content reservation-modal">
+        <span class="close">&times;</span>
+        <h2>Digite seu nome para definir o item escolhido</h2>
+        <div class="input-container">
+          <input type="text" id="user-name" placeholder="Seu nome" />
+        </div>
+        <button class="modal-btn" id="confirm-reservation">Confirmar</button>
+      </div>
     </div>
-  </div>
 
-  <div id="kitchen-section" class="container products">
+    <div id="thank-you-modal" class="modal">
+      <div class="modal-content thank-you-modal">
+        <span class="close">&times;</span>
+        <h2>Obrigado por contribuir com o nosso sonho!</h2>
+        <i class="heart-icon fa-solid fa-heart"></i>
+      </div>
+    </div>
 
-  <h1 class="title">COZINHA</h1>
-  <div class="options-menu">
-    <input type="text" id="search-bar" placeholder="Pesquise por produto..." />
-    <button id="toggle-sort-btn"><i class="fa-solid fa-arrow-down-z-a"></i></button>
+    <div id="kitchen-section" class="container products">
+      <div class="options-menu">
+        <input
+          type="text"
+          id="search-bar"
+          placeholder="Pesquise por produto..."
+        />
+        <button id="toggle-sort-btn">
+          <i class="fa-solid fa-arrow-down-z-a"></i>
+        </button>
+      </div>
 
-  </div>
+      <h1 class="title">COZINHA</h1>
 
-    <section class="grid" id="kitchen-grid">
-</section>
-  </div>
+      <section class="grid" id="kitchen-grid"></section>
+    </div>
 
-  <div id="livingroom-section" class="container products">
-    <h1 class="title">QUARTO E SALA</h1>
-    <section class="grid" id="livingroom-grid">
-    </section>
+    <div id="livingroom-section" class="container products">
+      <h1 class="title">QUARTO E SALA</h1>
+      <section class="grid" id="livingroom-grid"></section>
+    </div>
+    <div id="bathroom-section" class="container products">
+      <h1 class="title">BANHEIRO</h1>
+      <section class="grid" id="bathroom-grid"></section>
+    </div>
+    <div id="laundry-section" class="container products">
+      <h1 class="title">ÁREA DE SERVIÇO</h1>
+      <section class="grid" id="laundry-grid"></section>
+    </div>
 
-  </div>
-  <div id="bathroom-section" class="container products">
-    <h1 class="title">BANHEIRO</h1>
-    <section class="grid" id="bathroom-grid">
-    </section>
-  </div>
-  <div id="laundry-section" class="container products">
-    <h1 class="title">ÁREA DE SERVIÇO</h1>
-    <section class="grid" id="laundry-grid"></section>
-  </div>
-    
-<!--     <section id="add-item-section">
-        <h3>Adicionar Novo Item</h3>
-        <form id="add-item-form">
-          <label for="item-name">Nome do Item:</label>
-          <input type="text" id="item-name" required>
-          
-          <label for="item-image">Link da Imagem:</label>
-          <input type="url" id="item-image" required>
-          
-          <button type="submit">Adicionar Item</button>
-        </form>
-      </section> -->
+    <footer>
+      <div class="container manage">
+        <div id="password-modal" class="modal">
+          <div class="modal-content login">
+            <span class="close">&times;</span>
+            <h2>Digite a senha para acessar o painel de gerenciamento</h2>
+            <div class="input-container">
+              <input type="password" id="password" placeholder="Senha" />
+            </div>
+            <button class="modal-btn" id="submit-password">Confirmar</button>
 
-      <footer>
-        <div class="container manage">
+            <p id="error-message" style="color: red; display: none"></p>
+          </div>
+        </div>
 
-          <div id="password-modal" class="modal">
-            <div class="modal-content login">
-              <span class="close">&times;</span>
-              <h2>Digite a senha para acessar o painel de gerenciamento</h2>
-              <div class="input-container">
-                <input type="password" id="password" placeholder="Senha" />
-              </div>
-              <button class="modal-btn" id="submit-password">Confirmar</button>
+        <button id="manage-btn">Gerenciar</button>
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
 
-              <p id="error-message" style="color: red; display: none;"></p>
+            <div class="buttons">
+              <button class="content-btn" onclick="showContent('content1')">
+                <i class="fa-solid fa-gear"></i>
+              </button>
+              <button
+                class="content-btn"
+                onclick="showContent('add-item-section')"
+              >
+                <i class="fa-solid fa-circle-plus"></i>
+              </button>
+            </div>
+            <div id="content1" class="content">
+              <h2>Relatório de Escolhas</h2>
+              <ul id="choices-list"></ul>
+            </div>
+            <div id="add-item-section" class="content" style="display: none">
+              <h3>Adicionar Novo Item</h3>
+              <form id="add-item-form">
+                <label for="item-name">Nome do Item:</label>
+                <input type="text" id="item-name" required />
+
+                <label for="item-image">Link da Imagem:</label>
+                <input type="url" id="item-image" required />
+
+                <label for="item-category">Categoria do Item:</label>
+                <select name="item-category" id="item-category">
+                  <option value="kitchen-grid">Cozinha</option>
+                  <option value="livingroom-grid">Quarto e sala</option>
+                  <option value="bathroom-grid">Banheiro</option>
+                  <option value="laundry-grid">Área de serviço</option>
+                </select>
+
+                <button id="add-item-btn" type="submit">Adicionar Item</button>
+              </form>
             </div>
           </div>
-
-          <button id="manage-btn">Gerenciar</button>
-            <div id="modal" class="modal">
-              <div class="modal-content">
-                <span class="close">&times;</span>
-
-                <div class="buttons">
-                  <button class="content-btn" onclick="showContent('content1')"><i class="fa-solid fa-gear"></i></button>
-                  <button class="content-btn" onclick="showContent('add-item-section')"><i class="fa-solid fa-circle-plus"></i></button>
-              </div>
-              <div id="content1" class="content">
-                  <h2>Relatório de Escolhas</h2>
-                  <ul id="choices-list"></ul>
-              </div>
-              <div id="add-item-section" class="content" style="display: none;">
-                  <h3>Adicionar Novo Item</h3>
-                  <form id="add-item-form">
-                      <label for="item-name">Nome do Item:</label>
-                      <input type="text" id="item-name" required>
-                      
-                      <label for="item-image">Link da Imagem:</label>
-                      <input type="url" id="item-image" required>
-
-                      <label for="item-category">Categoria do Item:</label>
-                      <select name="item-category" id="item-category">
-                        <option value="kitchen-grid">Cozinha</option>
-                        <option value="livingroom-grid">Quarto e sala</option>
-                        <option value="bathroom-grid">Banheiro</option>
-                        <option value="laundry-grid">Área de serviço</option>
-                      </select>
-                      
-                      <button id="add-item-btn" type="submit">Adicionar Item</button>
-                  </form>
-              </div>
-              </div>
-            </div>
-        </div>  
+        </div>
+      </div>
       <p class="dev">Desenvolvido por @Isaquecostaaa</p>
-    </footer>      
+    </footer>
     <script>
       function showContent(contentId) {
+        const contents = document.querySelectorAll(".content");
+        contents.forEach((content) => {
+          content.style.display = "none";
+        });
 
-          const contents = document.querySelectorAll('.content');
-          contents.forEach(content => {
-              content.style.display = 'none';
-            });
-
-          const selectedContent = document.getElementById(contentId);
-          selectedContent.style.display = 'block';
-
+        const selectedContent = document.getElementById(contentId);
+        selectedContent.style.display = "block";
       }
-  </script>
+    </script>
     <script type="module" src="script.js"></script>
-</body>
+  </body>
 </html>

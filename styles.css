@@ -1,20 +1,16 @@
-/* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-
 
 :root {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
-/* Estilos gerais */
 body {
-    font-family: "Poppins";
-    line-height: 1.6;
+  font-family: "Poppins";
+  line-height: 1.6;
 }
 
 h1 {
@@ -26,215 +22,207 @@ button {
 }
 
 .container {
-    
-    background-color: #e7e9ec;
-
+  background-color: #e7e9ec;
 }
 
 .no-scroll {
-    overflow: hidden; /* Desativa a rolagem */
-    height: 100%; /* Impede que o conteúdo fique rolável */
+  overflow: hidden;
+  height: 100%;
 }
 
-
 header {
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    z-index: 100;
-    border-bottom: solid #e7e9ec 1px;
-    transition: transform 0.3s ease;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 100;
+  border-bottom: solid #e7e9ec 1px;
+  transition: transform 0.3s ease;
 }
 
 header.hide {
-    transform: translateY(-100%); /* Faz o header sumir para cima */
+  transform: translateY(-100%);
 }
 
 .navbar {
-    position: sticky; /* Fixado no topo da tela */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 8vh;
-    background-color: #fff;
-    z-index: 1004;
-    transition: all 0.3s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8vh;
+  background-color: #fff;
+  z-index: 1004;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hamburger-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    background-color: white;
-  }
-  
-.hamburger-btn span {
-    width: 25px;
-    height: 3px;
-    background-color: black;
-    transition: all 0.3s ease-in-out;
-  }
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background-color: white;
+}
 
+.hamburger-btn span {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  transition: all 0.3s ease-in-out;
+}
 
 .menu {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .menu ul {
-    display: flex; 
-    flex-direction: column;
-    gap: 1rem;
-    position: fixed;
-    top: -100vh; 
-    left: 0;
-    width: 100%;
-    overflow: hidden; 
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 10rem;
-    justify-content: space-around;
-    align-items: center;
-    backdrop-filter: blur(5px);
-    opacity: 0;
-    transition: top 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: fixed;
+  top: -100vh;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10rem;
+  justify-content: space-around;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: top 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-
 .menu ul.active {
-    top: 0;
-    opacity: 1;
+  top: 0;
+  opacity: 1;
 }
 
 .menu a {
-    color: black;
-    text-decoration: none;
-    background-color: #dadada;
-    padding: 2rem;
-    max-width: 100%;
-    width: 100%;
-    border-radius: 10px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
+  color: black;
+  text-decoration: none;
+  background-color: #dadada;
+  padding: 2rem;
+  max-width: 100%;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 .list.active {
-    display: flex;
+  display: flex;
 }
 
 .hamburger-btn.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  
-  .hamburger-btn.active span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .hamburger-btn.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
+  transform: rotate(45deg) translate(5px, 5px);
+}
 
-  .profile {
-    width: 100%;
-    height: 92vh;
-    background-image: url(Design\ sem\ nome\ \(3\).svg);
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.hamburger-btn.active span:nth-child(2) {
+  opacity: 0;
+}
 
-  .names h1 {
-    font-family: "Abiah-Regular";
-    font-size: 6rem;
-    line-height: 5rem;
-    color: #fff;
-  }
+.hamburger-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
 
-  .names h1:first-child {
-    padding-left: 1rem;
-  }
+.profile {
+  width: 100%;
+  height: 92vh;
+  background-image: url("profile-bg.svg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .names h1:nth-child(2)::before {
-    content: "";
-    display: block;
-    background-color: #fff;
-    height: 2px;
-    width: 100%;
-    position: relative;
-    top: 8rem;
+.names h1 {
+  font-family: "Abiah-Regular";
+  font-size: 6rem;
+  line-height: 5rem;
+  color: #fff;
+}
 
-  }
+.names h1:first-child {
+  padding-left: 1rem;
+}
 
-  .names span {
-    font-size: 5rem;
-  }
+.names h1:nth-child(2)::before {
+  content: "";
+  display: block;
+  background-color: #fff;
+  height: 2px;
+  width: 100%;
+  position: relative;
+  top: 8rem;
+}
 
-  .names {
-   position: relative;
-    top: 15rem;
+.names span {
+  font-size: 5rem;
+}
 
-  }
+.names {
+  position: relative;
+  top: 15rem;
+}
 
-  .names p {
-    color: #fff;
-    font-size: 1.3rem;
-    font-weight: 400;
-    position: relative;
-    top: 5rem;
-  }
+.names p {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 400;
+  position: relative;
+  top: 5rem;
+}
 
-  .names img {
-    height: 2rem;
-    position: relative;
-    top: 6rem;
-    left: 14.5rem;
-  }
+.names img {
+  height: 2rem;
+  position: relative;
+  top: 6rem;
+  left: 14.5rem;
+}
 
 .title {
-    text-align: center;
-    font-family: "Abiah-Regular";
-    font-weight: 3.8rem;
-    font-weight: bold;
+  text-align: center;
+  font-family: "Abiah-Regular";
+  font-weight: 3.8rem;
+  font-weight: bold;
 }
 
 .about {
-    text-align: center;
-    margin-bottom: 20px;
-    padding: 2rem 3rem 2rem 3rem;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    gap: 2rem;
-    background-color: #e7e9ec;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 2rem 3rem 2rem 3rem;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #e7e9ec;
 }
 
-
 .about h1 {
-    font-family: "Abiah-Regular";
-    text-transform: uppercase;
-    font-weight: bolder;
+  font-family: "Abiah-Regular";
+  text-transform: uppercase;
+  font-weight: bolder;
 }
 
 .about p {
-    font-size: 14px;
-    font-family: "Poppins";
-    text-align: justify;
+  font-size: 14px;
+  font-family: "Poppins";
+  text-align: justify;
 }
 
 .about span {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .circle {
@@ -270,275 +258,245 @@ header.hide {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 3 colunas */
   gap: 2rem; /* Espaçamento entre os círculos */
-  justify-content: center; /* Centraliza os círculos horizontalmente */
-  margin: 0 auto; /* Garante que o grid esteja alinhado ao centro */
-  max-width: 14rem; 
-  padding: 2rem 0;/* Limita a largura do grid para mantê-lo proporcional */
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 14rem;
+  padding: 2rem 0;
 }
-
-
-/* Estilos do grid */
-/* .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
-    padding:1rem 1rem 5rem 1rem;
-    justify-items: center;
-    align-items: center;
-} */
 
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
   width: 100%;
-  max-width: 1200px; /* Igual ao container do .options-menu */
-  padding: 1rem 1rem; /* Adiciona padding lateral consistente */
-  margin: 0 auto; /* Centraliza o grid em relação ao container */
+  max-width: 1200px;
+  padding: 1rem 1rem;
+  margin: 0 auto;
 }
 
 .item {
-    text-align: center;
-    padding: 1rem;
-    border-radius: 8px;
-    background-color: #fff;
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    height: 27rem; /* Altura fixa para todos os itens */
-    font-family: "Poppins";
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Distribui o conteúdo de forma uniforme */
-    align-items: center;
-    gap: 1rem;
-    box-sizing: border-box;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #fff;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 27rem;
+  font-family: "Poppins";
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  box-sizing: border-box;
 }
-
-
 
 .item img {
-    width: 100%;
-    height: 15rem; /* Define uma altura fixa para as imagens */
-    object-fit: contain; /* Garante que a imagem seja redimensionada proporcionalmente */
-    border-radius: 4px;
-    padding-top: 2rem;
+  width: 100%;
+  height: 15rem;
+  object-fit: contain;
+  border-radius: 4px;
+  padding-top: 2rem;
 }
-
 
 .item p {
-    font-size: clamp(1rem, 2vw, 1.4rem); /* Define um tamanho mínimo, ideal e máximo */
-    color: #333;
-    height: 3rem;
-    line-height: 1.5rem;
-    overflow: hidden;
-    text-align: center; /* Evita quebra de linha */
-    text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  color: #333;
+  height: 3rem;
+  line-height: 1.5rem;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
 }
 
-
-/* Layout para telas maiores */
-
-
 .products {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1.5rem;
-    padding-top: 1rem;
-    margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 1rem;
+  margin-top: 2rem;
 }
 
 .status {
-    position: absolute; /* Posiciona o status fora do fluxo normal */
-    top: -10px; /* Ajusta a posição vertical */
-    left: 50%; /* Centraliza horizontalmente */
-    transform: translateX(-50%); /* Corrige o alinhamento horizontal */
-    background-color: #4caf50; /* Verde */
-    color: white;
-    font-size: 1.4rem;
-    font-weight: bold;
-    font-family: "Poppins";
-    padding: 0.5rem 1.5rem;
-    border-radius: 0.4rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra */
-    z-index: 10;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: bold;
+  font-family: "Poppins";
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
 }
 
-/* Disponível */
 [data-status="disponivel"] .status {
-    background-color: #4caf50; /* Verde */
-    color: white;
+  background-color: #4caf50;
+  color: white;
 }
 
-/* Indisponível */
 [data-status="indisponivel"] .status {
-    background-color: #f44336; /* Vermelho */
-    text-decoration: line-through;
+  background-color: #f44336;
+  text-decoration: line-through;
 }
 
 .item-btn {
-    padding: 0.8rem 2.5rem;
-    border: none;
-    background-color: #dadada;
-    font-family: "Poppins";
-    border-radius: 0.5rem;
-    cursor: pointer;
+  padding: 0.8rem 2.5rem;
+  border: none;
+  background-color: #dadada;
+  font-family: "Poppins";
+  border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .item-btn:hover {
   background-color: #898989;
 }
 
-
 footer {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
-
-
 .modal {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 100; /* Ficar na frente de outros elementos */
-    width: 100vh;
-    height: 100vh;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo escurecido */
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-  
-  /* Estilo do conteúdo do modal */
-  .modal-content {
-    background-color: white;
-    padding: 0px 1rem 2rem 1rem;
-    border: 1px solid #888;
-    width: 80%; /* Tamanho do modal */
-    max-width: 400px;
-    text-align: center;
-    border-radius: 1rem;
-    font-family: "Poppins";
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    overflow: auto;
-    max-height: 60rem;
-  }
-  
-  /* Estilo para o fechamento do modal */
-  .close {
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    align-self: flex-end;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  width: 100vh;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 
-  .reservation-modal {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    max-height: 25rem;
-    height: 100%;
+.modal-content {
+  background-color: white;
+  padding: 0px 1rem 2rem 1rem;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  border-radius: 1rem;
+  font-family: "Poppins";
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  overflow: auto;
+  max-height: 60rem;
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  align-self: flex-end;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.reservation-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 25rem;
+  height: 100%;
 }
 
 .reservation-modal input {
-    outline: none;
+  outline: none;
 }
 
-  
-  
-  #choices-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  #choices-list li {
-    margin: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    font-size: 1rem;
-  }
-  #choices-list li p {
-    font-size: 1.2rem;
-  }
-  
+#choices-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#choices-list li {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+#choices-list li p {
+  font-size: 1.2rem;
+}
+
 .manage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10rem;
 }
 
-.manage button, .modal-btn {
-    font-family: "Poppins";
-    border-radius: 0.5rem;
-    border: solid 1px #333;
-    padding: 0.5rem 1rem;
-    height: 3rem;
-    cursor: pointer;
+.manage button,
+.modal-btn {
+  font-family: "Poppins";
+  border-radius: 0.5rem;
+  border: solid 1px #333;
+  padding: 0.5rem 1rem;
+  height: 3rem;
+  cursor: pointer;
 }
 
 .manage button:hover {
-    background-color: #d0d0d0;
+  background-color: #d0d0d0;
 }
 
-
 .login {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    max-height: 25rem;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 25rem;
+  height: 100%;
 }
 
 .login input {
-    height: 3rem;
-    outline: none;
+  height: 3rem;
+  outline: none;
 }
 
 .delete-btn {
-
-    color: rgb(255, 130, 130);
-    border: none !important;
-    padding: 0.2rem 1rem !important;
-    margin-left: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    
-  }
+  color: rgb(255, 130, 130);
+  border: none !important;
+  padding: 0.2rem 1rem !important;
+  margin-left: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
 
 footer .dev {
-    color: #565656;
-    background-color: #e7e9ec;
-    text-align: center;
-    padding-bottom: 2rem;
+  color: #565656;
+  background-color: #e7e9ec;
+  text-align: center;
+  padding-bottom: 2rem;
 }
-  
+
 .input-container {
   position: relative;
   width: 100%;
-  max-width: 40rem; /* Ajuste conforme necessário */
+  max-width: 40rem;
   margin: 0 auto;
   padding: 0.5rem 1rem;
   border: 2px solid #ccc;
   border-radius: 5px;
-  
 }
 
-.input-container #password, #user-name {
+.input-container #password,
+#user-name {
   width: 100%;
   padding: 1rem;
   border: none;
@@ -553,12 +511,12 @@ footer .dev {
 }
 
 .thank-you-modal {
-    height: 20rem;
+  height: 20rem;
 }
 
 .heart-icon {
-    font-size: 2rem;
-    color: red;
+  font-size: 2rem;
+  color: red;
 }
 
 .options-menu {
@@ -567,12 +525,15 @@ footer .dev {
   align-items: center;
   gap: 1rem;
   width: 100%;
-  max-width: 1200px; /* Igual ao container do grid */
-  padding: 0 1rem; /* Adiciona padding lateral consistente */
-  margin: 0 auto; /* Centraliza o menu em relação ao container */
+  max-width: 1200px;
+  padding: 0 1rem;
+  margin: 0 auto;
+  border-bottom: 1px solid #dadada;
+  padding-bottom: 1rem;
 }
 
-.options-menu input, .options-menu button {
+.options-menu input,
+.options-menu button {
   padding: 0.8rem 0.5rem;
   border-radius: 0.5rem;
 }
@@ -588,26 +549,19 @@ footer .dev {
   cursor: pointer;
 }
 
-
 @media (min-width: 768px) {
   .grid {
-      grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 
-
-.about     {
-      margin: 0 20%;
+  .about {
+    margin: 0 20%;
   }
-
-/*   .options-menu {
-    margin-left: 11rem;
-  } */
 }
 
 .buttons button {
   padding: 10px;
   margin: 5px;
-
 }
 
 .buttons {
@@ -617,7 +571,6 @@ footer .dev {
 }
 
 .content {
-
   margin-top: 20px;
 }
 
@@ -642,7 +595,7 @@ footer .dev {
 }
 
 #add-item-section {
-height: 100%;
+  height: 100%;
 }
 
 #add-item-btn {

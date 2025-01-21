@@ -536,6 +536,8 @@ footer .dev {
 .options-menu button {
   padding: 0.8rem 0.5rem;
   border-radius: 0.5rem;
+  font-family: "Poppins";
+
 }
 
 .options-menu button {
@@ -552,6 +554,7 @@ footer .dev {
 #filter-status {
   padding: 0.8rem 0.5rem;
   border-radius: 0.5rem;
+  font-family: "Poppins";
 }
 
 @media (min-width: 768px) {

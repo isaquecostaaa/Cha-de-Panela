@@ -549,6 +549,11 @@ footer .dev {
   cursor: pointer;
 }
 
+#filter-status {
+  padding: 0.8rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
 @media (min-width: 768px) {
   .grid {
     grid-template-columns: repeat(4, 1fr);

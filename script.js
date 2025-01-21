@@ -378,6 +378,22 @@ document.getElementById("toggle-sort-btn").addEventListener("click", function ()
     });
   });
 
+  document.getElementById("filter-status").addEventListener("change", function () {
+    const filterValue = this.value; // "all", "disponivel", or "reservado"
+    const items = Array.from(document.getElementsByClassName("item"));
+  
+    items.forEach((item) => {
+      const itemStatus = item.getAttribute("data-status");
+  
+      if (filterValue === "all" || itemStatus === filterValue) {
+        item.style.display = ""; // Mostrar item
+      } else {
+        item.style.display = "none"; // Esconder item
+      }
+    });
+  });
+  
+
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.querySelector(".hamburger-btn");
   const menu = document.querySelector(".list");

@@ -530,6 +530,7 @@ footer .dev {
   margin: 0 auto;
   border-bottom: 1px solid #dadada;
   padding-bottom: 1rem;
+  overflow-x: scroll;
 }
 
 .options-menu input,

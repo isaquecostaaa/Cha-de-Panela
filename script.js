@@ -379,16 +379,16 @@ document.getElementById("toggle-sort-btn").addEventListener("click", function ()
   });
 
   document.getElementById("filter-status").addEventListener("change", function () {
-    const filterValue = this.value; // "all", "disponivel", or "reservado"
+    const filterValue = this.value;
     const items = Array.from(document.getElementsByClassName("item"));
   
     items.forEach((item) => {
       const itemStatus = item.getAttribute("data-status");
   
       if (filterValue === "all" || itemStatus === filterValue) {
-        item.style.display = ""; // Mostrar item
+        item.style.display = "";
       } else {
-        item.style.display = "none"; // Esconder item
+        item.style.display = "none";
       }
     });
   });
@@ -460,7 +460,7 @@ document.addEventListener("DOMContentLoaded", () => {
       window.pageYOffset || document.documentElement.scrollTop;
 
     if (!menu.classList.contains("active")) {
-      // Se o usuário rolar para baixo
+      
       if (currentScroll > lastScrollTop) {
         header.classList.add("hide");
       } else {
